@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>鹈鹕骑自行车</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #87ceeb 0%, #cdeffd 60%, #d9f2c4 60%, #d9f2c4 100%);
+    overflow: hidden;
+    font-family: sans-serif;
+  }
+  svg { width: 90vw; max-width: 900px; height: auto; }
+
+  /* Wheels spin */
+  .wheel {
+    transform-origin: center;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Pedal crank spin (slightly offset speed for style) */
+  .crank {
+    transform-origin: 400px 300px;
+    animation: spin 0.7s linear infinite;
+  }
+
+  /* Whole bike+pelican bob up and down while riding */
+  .rider-rig {
+    animation: bob 0.7s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+
+  /* Wings flap */
+  .wing {
+    transform-origin: 330px 220px;
+    animation: flap 0.6s ease-in-out infinite;
+  }
+  @keyframes flap {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-18deg); }
+  }
+
+  /* Whole scene scrolls to give a sense of forward motion */
+  .scene {
+    animation: ride 6s linear infinite;
+  }
+  @keyframes ride {
+    0% { transform: translateX(40px); }
+    50% { transform: translateX(-20px); }
+    100% { transform: translateX(40px); }
+  }
+
+  .ground-line {
+    stroke: #6b8f3f;
+    stroke-width: 4;
+  }
+
+  .cloud { opacity: 0.9; animation: drift 20s linear infinite; }
+  @keyframes drift {
+    from { transform: translateX(-50px); }
+    to { transform: translateX(950px); }
+  }
+</style>
+</head>
+<body>
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Sky clouds -->
+  <g class="cloud" opacity="0.9">
+    <ellipse cx="120" cy="80" rx="40" ry="18" fill="white"/>
+    <ellipse cx="150" cy="70" rx="30" ry="15" fill="white"/>
+    <ellipse cx="90" cy="70" rx="25" ry="14" fill="white"/>
+  </g>
+  <g class="cloud" style="animation-delay:-8s;" opacity="0.8">
+    <ellipse cx="600" cy="60" rx="50" ry="20" fill="white"/>
+    <ellipse cx="640" cy="50" rx="30" ry="15" fill="white"/>
+  </g>
+
+  <!-- Sun -->
+  <circle cx="820" cy="70" r="35" fill="#ffdd55"/>
+
+  <!-- Ground -->
+  <line x1="0" y1="400" x2="900" y2="400" class="ground-line"/>
+
+  <g class="scene">
+
+  <!-- ===================== BIKE + PELICAN RIG ===================== -->
+  <g class="rider-rig" transform="translate(0,0)">
+
+    <!-- Bicycle -->
+    <g id="bike">
+      <!-- Rear wheel -->
+      <g class="wheel" transform="translate(300,380)">
+        <circle r="45" fill="none" stroke="#333" stroke-width="6"/>
+        <line x1="-45" y1="0" x2="45" y2="0" stroke="#333" stroke-width="3"/>
+        <line x1="0" y1="-45" x2="0" y2="45" stroke="#333" stroke-width="3"/>
+        <line x1="-32" y1="-32" x2="32" y2="32" stroke="#333" stroke-width="3"/>
+        <line x1="-32" y1="32" x2="32" y2="-32" stroke="#333" stroke-width="3"/>
+        <circle r="6" fill="#333"/>
+      </g>
+
+      <!-- Front wheel -->
+      <g class="wheel" transform="translate(500,380)">
+        <circle r="45" fill="none" stroke="#333" stroke-width="6"/>
+        <line x1="-45" y1="0" x2="45" y2="0" stroke="#333" stroke-width="3"/>
+        <line x1="0" y1="-45" x2="0" y2="45" stroke="#333" stroke-width="3"/>
+        <line x1="-32" y1="-32" x2="32" y2="32" stroke="#333" stroke-width="3"/>
+        <line x1="-32" y1="32" x2="32" y2="-32" stroke="#333" stroke-width="3"/>
+        <circle r="6" fill="#333"/>
+      </g>
+
+      <!-- Frame -->
+      <g stroke="#c0392b" stroke-width="7" stroke-linecap="round" fill="none">
+        <line x1="300" y1="380" x2="400" y2="300"/>
+        <line x1="400" y1="300" x2="500" y2="380"/>
+        <line x1="300" y1="380" x2="440" y2="380"/>
+        <line x1="440" y1="380" x2="500" y2="380"/>
+        <line x1="400" y1="300" x2="440" y2="380"/>
+        <line x1="400" y1="300" x2="380" y2="250"/>
+        <line x1="380" y1="250" x2="500" y2="380"/>
+      </g>
+
+      <!-- Seat post & seat -->
+      <line x1="360" y1="300" x2="380" y2="250" stroke="#333" stroke-width="6"/>
+      <ellipse cx="360" cy="298" rx="18" ry="6" fill="#222"/>
+
+      <!-- Handlebar stem & bar -->
+      <line x1="500" y1="380" x2="490" y2="270" stroke="#333" stroke-width="6"/>
+      <path d="M 460 265 Q 490 255 520 265" stroke="#222" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+      <!-- Pedal crank -->
+      <g class="crank">
+        <line x1="400" y1="300" x2="435" y2="300" stroke="#333" stroke-width="5"/>
+        <line x1="400" y1="300" x2="365" y2="300" stroke="#333" stroke-width="5"/>
+        <rect x="428" y="294" width="16" height="10" rx="2" fill="#222"/>
+        <rect x="356" y="294" width="16" height="10" rx="2" fill="#222"/>
+      </g>
+    </g>
+
+    <!-- ===================== PELICAN ===================== -->
+    <g id="pelican" transform="translate(0,-25)">
+
+      <!-- Far leg -->
+      <g stroke="#e0a030" stroke-width="6" stroke-linecap="round">
+        <line x1="405" y1="280" x2="420" y2="310"/>
+        <line x1="420" y1="310" x2="432" y2="300"/>
+      </g>
+
+      <!-- Tail -->
+      <path d="M 340 265 Q 300 275 290 290" stroke="#f2f2f2" stroke-width="14" fill="none" stroke-linecap="round"/>
+
+      <!-- Body -->
+      <ellipse cx="370" cy="245" rx="55" ry="40" fill="#f5f5f5" stroke="#ccc" stroke-width="2"/>
+
+      <!-- Near wing -->
+      <g class="wing">
+        <path d="M 330 220 Q 280 200 260 240 Q 300 250 330 235 Z" fill="#e6e6e6" stroke="#bbb" stroke-width="2"/>
+      </g>
+
+      <!-- Near leg gripping pedal area (down to crank) -->
+      <g stroke="#e0a030" stroke-width="7" stroke-linecap="round">
+        <line x1="395" y1="282" x2="378" y2="315"/>
+        <line x1="378" y1="315" x2="365" y2="300"/>
+      </g>
+
+      <!-- Neck -->
+      <path d="M 410 220 Q 450 190 460 230 Q 465 250 445 260" fill="#f5f5f5" stroke="#ccc" stroke-width="2"/>
+
+      <!-- Head -->
+      <circle cx="452" cy="205" r="26" fill="#f5f5f5" stroke="#ccc" stroke-width="2"/>
+
+      <!-- Eye -->
+      <circle cx="460" cy="198" r="3" fill="#222"/>
+
+      <!-- Beak (upper) -->
+      <path d="M 476 202 Q 545 195 560 210 Q 545 215 476 214 Z" fill="#e8a33d" stroke="#c9862a" stroke-width="1.5"/>
+      <!-- Beak pouch (lower) -->
+      <path d="M 478 214 Q 530 232 500 240 Q 480 234 476 216 Z" fill="#f0b84f" stroke="#c9862a" stroke-width="1.5"/>
+
+      <!-- Arms/near-wing gripping handlebar -->
+      <path d="M 400 230 Q 440 250 480 265" stroke="#e6e6e6" stroke-width="10" fill="none" stroke-linecap="round"/>
+    </g>
+
+  </g>
+  <!-- ===================== END RIG ===================== -->
+
+  </g>
+
+  <!-- Motion lines -->
+  <g stroke="#ffffffaa" stroke-width="3" stroke-linecap="round">
+    <line x1="60" y1="330" x2="110" y2="330"/>
+    <line x1="40" y1="350" x2="100" y2="350"/>
+    <line x1="70" y1="370" x2="120" y2="370"/>
+  </g>
+
+</svg>
+</body>
+</html>

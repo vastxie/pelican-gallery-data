@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鹈鹕骑自行车 - SVG 2D 动画</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #aee3f5 0%, #d8f0fa 45%, #cfe8cf 46%, #b8dcb4 100%);
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  h1 {
+    margin: 16px 0 4px;
+    color: #2c5a7a;
+    font-weight: 600;
+  }
+  p {
+    margin: 0 0 16px;
+    color: #4a7085;
+  }
+  svg {
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+    max-width: 96vw;
+  }
+  .ground {
+    fill: #8fc98f;
+  }
+</style>
+</head>
+<body>
+<h1>🐦 鹈鹕骑自行车 🚲</h1>
+<p>一个纯 SVG + CSS 的 2D 动画</p>
+
+<svg width="760" height="480" viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 车轮辐条组 -->
+    <g id="spokes">
+      <line x1="0" y1="0" x2="0" y2="-70" stroke="#5b5b5b" stroke-width="3"/>
+      <line x1="0" y1="0" x2="49.5" y2="-49.5" stroke="#5b5b5b" stroke-width="3"/>
+      <line x1="0" y1="0" x2="70" y2="0" stroke="#5b5b5b" stroke-width="3"/>
+      <line x1="0" y1="0" x2="49.5" y2="49.5" stroke="#5b5b5b" stroke-width="3"/>
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#5b5b5b" stroke-width="3"/>
+      <line x1="0" y1="0" x2="-49.5" y2="49.5" stroke="#5b5b5b" stroke-width="3"/>
+      <line x1="0" y1="0" x2="-70" y2="0" stroke="#5b5b5b" stroke-width="3"/>
+      <line x1="0" y1="0" x2="-49.5" y2="-49.5" stroke="#5b5b5b" stroke-width="3"/>
+    </g>
+  </defs>
+
+  <!-- 天空装饰 -->
+  <circle cx="120" cy="80" r="34" fill="#fff4c2"/>
+  <circle cx="120" cy="80" r="40" fill="none" stroke="#ffe89a" stroke-width="6" opacity="0.4"/>
+  <g fill="#ffffff" opacity="0.9">
+    <ellipse cx="560" cy="90" rx="52" ry="20"/>
+    <ellipse cx="610" cy="78" rx="40" ry="18"/>
+    <ellipse cx="520" cy="82" rx="36" ry="16"/>
+  </g>
+
+  <!-- 地面 -->
+  <rect class="ground" x="0" y="420" width="760" height="60"/>
+
+  <!-- ============ 自行车组（整体前移） ============ -->
+  <g>
+    <!-- 后轮 -->
+    <g class="wheel" style="transform-origin: 210px 355px;">
+      <circle cx="210" cy="355" r="70" fill="none" stroke="#333" stroke-width="7"/>
+      <g style="transform-origin: 210px 355px; animation: spin 0.9s linear infinite;">
+        <use href="#spokes" transform="translate(210 355)"/>
+      </g>
+      <circle cx="210" cy="355" r="12" fill="#555" stroke="#333" stroke-width="3"/>
+    </g>
+
+    <!-- 前轮 -->
+    <g class="wheel" style="transform-origin: 520px 355px;">
+      <circle cx="520" cy="355" r="70" fill="none" stroke="#333" stroke-width="7"/>
+      <g style="transform-origin: 520px 355px; animation: spin 0.9s linear infinite;">
+        <use href="#spokes" transform="translate(520 355)"/>
+      </g>
+      <circle cx="520" cy="355" r="12" fill="#555" stroke="#333" stroke-width="3"/>
+    </g>
+
+    <!-- 车架 -->
+    <g stroke="#d94f4f" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- 后轮轴到中轴 -->
+      <line x1="210" y1="355" x2="330" y2="355"/>
+      <!-- 中轴到车座 -->
+      <line x1="330" y1="355" x2="340" y2="255"/>
+      <!-- 车座到后轮轴 -->
+      <line x1="340" y1="255" x2="210" y2="355"/>
+      <!-- 中轴到前轮轴（下管） -->
+      <line x1="330" y1="355" x2="520" y2="355"/>
+      <!-- 车头立管 -->
+      <line x1="340" y1="255" x2="490" y2="220"/>
+      <!-- 车头下管到前轮轴 -->
+      <line x1="490" y1="220" x2="520" y2="355"/>
+    </g>
+
+    <!-- 车座 -->
+    <path d="M320 250 Q345 238 362 252 L358 258 Q342 246 322 258 Z" fill="#222"/>
+
+    <!-- 车把 -->
+    <g stroke="#333" stroke-width="8" fill="none" stroke-linecap="round">
+      <line x1="490" y1="220" x2="470" y2="190"/>
+      <line x1="470" y1="190" x2="445" y2="178"/>
+    </g>
+
+    <!-- 中轴 / 曲柄（旋转） -->
+    <g style="transform-origin: 330px 355px; animation: spin 0.9s linear infinite;">
+      <line x1="330" y1="355" x2="330" y2="320" stroke="#444" stroke-width="7" stroke-linecap="round"/>
+      <line x1="330" y1="355" x2="330" y2="390" stroke="#444" stroke-width="7" stroke-linecap="round"/>
+      <!-- 脚踏 -->
+      <rect x="315" y="315" width="30" height="8" rx="3" fill="#333"/>
+      <rect x="315" y="387" width="30" height="8" rx="3" fill="#333"/>
+    </g>
+
+    <!-- ============ 鹈鹕身体 ============ -->
+    <g>
+      <!-- 腿（踩踏，交替上下） -->
+      <g>
+        <line class="leg" x1="345" y1="250" x2="340" y2="322" stroke="#f5a623" stroke-width="9" stroke-linecap="round"/>
+        <line class="leg2" x1="345" y1="250" x2="348" y2="382" stroke="#f5a623" stroke-width="9" stroke-linecap="round"/>
+        <!-- 脚蹼 -->
+        <path class="foot" d="M340 318 L328 322 L340 326 Z" fill="#f5a623"/>
+        <path class="foot2" d="M348 378 L336 382 L348 386 Z" fill="#f5a623"/>
+      </g>
+
+      <!-- 身体 -->
+      <ellipse cx="360" cy="220" rx="58" ry="48" fill="#ffffff" stroke="#e8e8e8" stroke-width="2"/>
+
+      <!-- 尾巴 -->
+      <path d="M405 235 Q440 250 435 225 Q445 240 442 218 Q430 232 410 218 Z" fill="#eaeaea"/>
+
+      <!-- 翅膀（拍动） -->
+      <g class="wing" style="transform-origin: 355px 205px;">
+        <path d="M340 205 Q360 185 395 195 Q370 210 352 218 Z" fill="#f2f2f2" stroke="#ddd" stroke-width="2"/>
+      </g>
+
+      <!-- 脖子 -->
+      <path d="M320 195 Q300 160 305 130" fill="none" stroke="#ffffff" stroke-width="26" stroke-linecap="round"/>
+      <path d="M320 195 Q300 160 305 130" fill="none" stroke="#f0f0f0" stroke-width="20" stroke-linecap="round"/>
+
+      <!-- 头 -->
+      <circle cx="306" cy="120" r="26" fill="#ffffff"/>
+
+      <!-- 眼睛 -->
+      <circle cx="314" cy="112" r="5" fill="#222"/>
+      <circle cx="316" cy="110" r="1.8" fill="#fff"/>
+
+      <!-- 上喙（张合） -->
+      <g class="beak-upper" style="transform-origin: 292px 122px;">
+        <path d="M290 118 Q250 118 238 126 Q262 132 292 128 Z" fill="#f5a623"/>
+      </g>
+      <!-- 下喙 / 喉囊 -->
+      <g class="beak-lower" style="transform-origin: 292px 128px;">
+        <path d="M290 126 Q256 130 244 136 Q262 146 292 136 Z" fill="#e8951f"/>
+        <!-- 喉囊 -->
+        <path d="M292 132 Q280 168 262 170 Q286 178 298 146 Z" fill="#f5b23c"/>
+      </g>
+
+      <!-- 头顶羽毛 -->
+      <path d="M298 98 Q300 84 306 90 Q306 98 302 104 Z" fill="#e8e8e8"/>
+    </g>
+  </g>
+
+  <!-- 飘过的风线 -->
+  <g stroke="#7fb0c8" stroke-width="3" stroke-linecap="round" opacity="0.7">
+    <line x1="60" y1="180" x2="140" y2="180" class="wind w1"/>
+    <line x1="30" y1="230" x2="90" y2="230" class="wind w2"/>
+    <line x1="80" y1="290" x2="150" y2="290" class="wind w3"/>
+  </g>
+</svg>
+
+<style>
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes pedal {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+  }
+  @keyframes pedal2 {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(14px); }
+  }
+  @keyframes flap {
+    0%, 100% { transform: rotate(-18deg); }
+    50%      { transform: rotate(22deg); }
+  }
+  @keyframes chomp {
+    0%, 100% { transform: rotate(0); }
+    50%      { transform: rotate(-14deg); }
+  }
+  @keyframes chomp2 {
+    0%, 100% { transform: rotate(0); }
+    50%      { transform: rotate(10deg); }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+  @keyframes windmove {
+    0%   { transform: translateX(30px); opacity: 0; }
+    30%  { opacity: 0.7; }
+    100% { transform: translateX(-260px); opacity: 0; }
+  }
+
+  .leg  { animation: pedal 0.9s ease-in-out infinite; }
+  .leg2 { animation: pedal2 0.9s ease-in-out infinite; }
+  .foot  { animation: pedal 0.9s ease-in-out infinite; }
+  .foot2 { animation: pedal2 0.9s ease-in-out infinite; }
+  .wing { animation: flap 1.4s ease-in-out infinite; }
+  .beak-upper { animation: chomp 1.1s ease-in-out infinite; }
+  .beak-lower { animation: chomp2 1.1s ease-in-out infinite; }
+  .wind { animation: windmove 2.4s linear infinite; }
+  .wind.w2 { animation-delay: 0.8s; }
+  .wind.w3 { animation-delay: 1.6s; }
+</style>
+</body>
+</html>

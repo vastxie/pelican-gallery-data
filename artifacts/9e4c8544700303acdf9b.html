@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>鹈鹕骑自行车 · SVG 2D 动画</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: linear-gradient(180deg, #eef3f7 0%, #dde6ee 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  }
+  h1 {
+    margin: 0;
+    color: #33414d;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  .stage {
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 24px 48px rgba(25, 35, 45, 0.18);
+    padding: 16px;
+  }
+  svg {
+    display: block;
+    width: min(92vw, 880px);
+    height: auto;
+    border-radius: 14px;
+    background: #8ec7f2;
+  }
+  p.hint {
+    margin: 0;
+    color: #6b7784;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+  <h1>鹈鹕骑自行车</h1>
+  <div class="stage">
+    <svg id="scene" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+      <title>一只鹈鹕骑着自行车的二维动画</title>
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#8ec7f2"/>
+          <stop offset="55%" stop-color="#bfe3f7"/>
+          <stop offset="100%" stop-color="#eaf6fb"/>
+        </linearGradient>
+        <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff6d0" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#fff6d0" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="100%" stop-color="#e3e0d2"/>
+        </linearGradient>
+        <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ef5b4c"/>
+          <stop offset="100%" stop-color="#c73a2c"/>
+        </linearGradient>
+        <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+          <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#1a1a1a" flood-opacity="0.25"/>
+        </filter>
+      </defs>
+
+      <!-- sky -->
+      <rect x="0" y="0" width="900" height="500" fill="url(#skyGrad)"/>
+      <circle cx="110" cy="85" r="70" fill="url(#sunGlow)"/>
+      <circle cx="110" cy="85" r="34" fill="#fff3c4"/>
+
+      <!-- drifting clouds -->
+      <g id="cloud1">
+        <animateTransform attributeName="transform" type="translate" values="120,70;168,64;120,70" dur="19s" repeatCount="indefinite"/>
+        <ellipse cx="0" cy="0" rx="30" ry="16" fill="#ffffff" opacity="0.9"/>
+        <ellipse cx="26" cy="-8" rx="22" ry="14" fill="#ffffff" opacity="0.9"/>
+        <ellipse cx="-24" cy="-4" rx="20" ry="13" fill="#ffffff" opacity="0.9"/>
+      </g>
+      <g id="cloud2">
+        <animateTransform attributeName="transform" type="translate" values="430,50;392,56;430,50" dur="24s" repeatCount="indefinite"/>
+        <g transform="scale(0.75)">
+          <ellipse cx="0" cy="0" rx="30" ry="16" fill="#ffffff" opacity="0.85"/>
+          <ellipse cx="26" cy="-8" rx="22" ry="14" fill="#ffffff" opacity="0.85"/>
+          <ellipse cx="-24" cy="-4" rx="20" ry="13" fill="#ffffff" opacity="0.85"/>
+        </g>
+      </g>
+      <g id="cloud3">
+        <animateTransform attributeName="transform" type="translate" values="700,95;655,100;700,95" dur="21s" repeatCount="indefinite"/>
+        <g transform="scale(0.9)">
+          <ellipse cx="0" cy="0" rx="30" ry="16" fill="#ffffff" opacity="0.85"/>
+          <ellipse cx="26" cy="-8" rx="22" ry="14" fill="#ffffff" opacity="0.85"/>
+          <ellipse cx="-24" cy="-4" rx="20" ry="13" fill="#ffffff" opacity="0.85"/>
+        </g>
+      </g>
+
+      <!-- hills -->
+      <path d="M0,385 Q150,330 320,375 T900,380 L900,430 L0,430 Z" fill="#a9d18e"/>
+      <path d="M0,405 Q220,355 420,398 T900,392 L900,430 L0,430 Z" fill="#8fc47a"/>
+
+      <!-- ground / road -->
+      <rect x="0" y="392" width="900" height="108" fill="#7cbb66"/>
+      <rect x="0" y="413" width="900" height="48" fill="#5a5e65"/>
+      <rect x="0" y="413" width="900" height="4" fill="#6b6f76" opacity="0.6"/>
+      <line x1="0" y1="437" x2="900" y2="437" stroke="#f5efe0" stroke-width="6" stroke-linecap="round" stroke-dasharray="34 30">
+        <animate attributeName="stroke-dashoffset" from="0" to="-64" dur="1s" repeatCount="indefinite"/>
+      </line>
+
+      <!-- contact shadow -->
+      <ellipse cx="425" cy="422" rx="235" ry="12" fill="#000000" opacity="0.18"/>
+
+      <!-- speed streaks -->
+      <g opacity="0.6">
+        <path d="M120,330 Q90,332 58,330" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none">
+          <animate attributeName="opacity" values="0;0.7;0" dur="1s" repeatCount="indefinite"/>
+        </path>
+        <path d="M112,356 Q80,358 48,356" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none">
+          <animate attributeName="opacity" values="0;0.7;0" dur="1s" begin="0.33s" repeatCount="indefinite"/>
+        </path>
+        <path d="M120,382 Q90,384 58,382" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none">
+          <animate attributeName="opacity" values="0;0.7;0" dur="1s" begin="0.66s" repeatCount="indefinite"/>
+        </path>
+      </g>
+
+      <g filter="url(#softShadow)">
+        <!-- rear wheel -->
+        <g>
+          <circle cx="255" cy="355" r="65" fill="#242424"/>
+          <circle cx="255" cy="355" r="57" fill="#3a3d41"/>
+          <g id="rearSpokes">
+            <animateTransform attributeName="transform" type="rotate" from="0 255 355" to="360 255 355" dur="1.5s" repeatCount="indefinite"/>
+          </g>
+          <circle cx="255" cy="355" r="50" fill="none" stroke="#cfd4d8" stroke-width="5"/>
+          <circle cx="255" cy="355" r="9" fill="#8b9096" stroke="#5b5f63" stroke-width="1.5"/>
+        </g>
+
+        <!-- front wheel -->
+        <g>
+          <circle cx="595" cy="355" r="65" fill="#242424"/>
+          <circle cx="595" cy="355" r="57" fill="#3a3d41"/>
+          <g id="frontSpokes">
+            <animateTransform attributeName="transform" type="rotate" from="0 595 355" to="360 595 355" dur="1.5s" repeatCount="indefinite"/>
+          </g>
+          <circle cx="595" cy="355" r="50" fill="none" stroke="#cfd4d8" stroke-width="5"/>
+          <circle cx="595" cy="355" r="9" fill="#8b9096" stroke="#5b5f63" stroke-width="1.5"/>
+        </g>
+
+        <!-- frame -->
+        <g stroke-linecap="round">
+          <line x1="255" y1="355" x2="365" y2="350" stroke="url(#frameGrad)" stroke-width="10"/>
+          <line x1="330" y1="250" x2="255" y2="355" stroke="url(#frameGrad)" stroke-width="8"/>
+          <line x1="365" y1="350" x2="560" y2="270" stroke="url(#frameGrad)" stroke-width="12"/>
+          <line x1="330" y1="250" x2="578" y2="232" stroke="url(#frameGrad)" stroke-width="10"/>
+          <line x1="365" y1="350" x2="330" y2="250" stroke="url(#frameGrad)" stroke-width="11"/>
+          <line x1="560" y1="270" x2="578" y2="232" stroke="url(#frameGrad)" stroke-width="12"/>
+          <line x1="560" y1="270" x2="595" y2="355" stroke="url(#frameGrad)" stroke-width="9"/>
+          <circle cx="255" cy="355" r="15" fill="none" stroke="#9aa0a6" stroke-width="3"/>
+          <path d="M380,332 L270,340" stroke="#555555" stroke-width="3" stroke-linecap="round"/>
+          <path d="M350,369 L240,369" stroke="#555555" stroke-width="3" stroke-linecap="round"/>
+          <line x1="330" y1="250" x2="316" y2="233" stroke="#c9ced2" stroke-width="7"/>
+          <ellipse cx="308" cy="230" rx="30" ry="9" fill="#3a2a25" transform="rotate(-12 308 230)"/>
+          <line x1="578" y1="232" x2="602" y2="208" stroke="#c9ced2" stroke-width="7"/>
+          <path d="M602,208 Q628,192 618,168 Q612,190 596,202" fill="none" stroke="#4a4f55" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="618" cy="167" r="5" fill="#2b2b2b"/>
+        </g>
+
+        <!-- crank + pedals -->
+        <g id="crank">
+          <animateTransform attributeName="transform" type="rotate" from="0 365 350" to="360 365 350" dur="3s" repeatCount="indefinite"/>
+          <circle cx="365" cy="350" r="27" fill="none" stroke="#9aa0a6" stroke-width="4"/>
+          <line x1="365" y1="350" x2="405" y2="350" stroke="#333333" stroke-width="9" stroke-linecap="round"/>
+          <rect x="395" y="344" width="20" height="12" rx="3" fill="#222222"/>
+          <line x1="365" y1="350" x2="325" y2="350" stroke="#333333" stroke-width="9" stroke-linecap="round"/>
+          <rect x="315" y="344" width="20" height="12" rx="3" fill="#222222"/>
+          <circle cx="365" cy="350" r="10" fill="#333333" stroke="#111111" stroke-width="1.5"/>
+        </g>
+
+        <!-- far leg (behind body) -->
+        <g id="legFar">
+          <line id="thighFar" x1="326" y1="216" x2="326" y2="216" stroke="#d97a38" stroke-width="11" stroke-linecap="round"/>
+          <line id="shinFar" x1="326" y1="216" x2="326" y2="216" stroke="#d97a38" stroke-width="10" stroke-linecap="round"/>
+          <g id="footFar" transform="translate(326,216) scale(0.88)">
+            <path d="M-6,-3 L18,-5 Q25,-2 23,3 Q18,9 -2,8 Q-9,5 -9,0 Z" fill="#cf7030" stroke="#b25f28" stroke-width="1.5" stroke-linejoin="round"/>
+          </g>
+        </g>
+
+        <!-- tail -->
+        <g id="tail">
+          <animateTransform attributeName="transform" type="rotate" values="-2 195 225;2 195 225;-2 195 225" dur="2.4s" begin="0.3s" repeatCount="indefinite"/>
+          <path d="M218,206 Q178,214 162,248 Q192,240 208,220 Z" fill="#e4e1d3" stroke="#c7c3b2" stroke-width="1.5"/>
+          <path d="M214,214 Q186,222 172,246" fill="none" stroke="#c7c3b2" stroke-width="1.2" opacity="0.7"/>
+        </g>
+
+        <!-- far wing -->
+        <path d="M300,150 Q235,148 212,205 Q262,202 302,172 Z" fill="#b9b6a8" stroke="#a19d8d" stroke-width="1.2"/>
+
+        <!-- body -->
+        <g>
+          <ellipse cx="275" cy="192" rx="98" ry="74" transform="rotate(-10 275 192)" fill="url(#bodyGrad)" stroke="#d8d4c4" stroke-width="2"/>
+          <ellipse cx="268" cy="222" rx="58" ry="33" transform="rotate(-8 268 222)" fill="#ffffff" opacity="0.55"/>
+        </g>
+
+        <!-- near leg (in front of body) -->
+        <g id="legNear">
+          <line id="thighNear" x1="338" y1="222" x2="338" y2="222" stroke="#e8823c" stroke-width="14" stroke-linecap="round"/>
+          <line id="shinNear" x1="338" y1="222" x2="338" y2="222" stroke="#e8823c" stroke-width="12" stroke-linecap="round"/>
+          <g id="footNear" transform="translate(338,222)">
+            <path d="M-6,-3 L20,-6 Q28,-2 26,4 Q20,10 -2,9 Q-10,6 -10,0 Z" fill="#e8823c" stroke="#c96b2e" stroke-width="1.5" stroke-linejoin="round"/>
+          </g>
+        </g>
+
+        <!-- head + long S-neck + beak with pouch -->
+        <g id="headGroup">
+          <animateTransform attributeName="transform" type="rotate" values="-1.5 345 150;1.5 345 150;-1.5 345 150" dur="3.6s" repeatCount="indefinite"/>
+          <path d="M345,150 C385,55 490,45 545,105" fill="none" stroke="#f7f5ec" stroke-width="48" stroke-linecap="round"/>
+          <path d="M345,150 C385,55 490,45 545,105" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" opacity="0.35"/>
+          <ellipse cx="560" cy="115" rx="40" ry="34" fill="#f7f5ec" stroke="#e2ddc9" stroke-width="1.5"/>
+          <path d="M598,112 C640,108 700,108 775,115 C745,155 680,170 630,155 C610,145 598,130 598,112 Z" fill="#eeae86" stroke="#d98f63" stroke-width="1"/>
+          <path d="M595,102 Q690,86 776,115 Q690,106 595,111 Z" fill="#eda43c" stroke="#c98526" stroke-width="1"/>
+          <path d="M602,99 Q690,88 770,113" fill="none" stroke="#c98526" stroke-width="2" opacity="0.6"/>
+          <circle cx="574" cy="104" r="5" fill="#2a2a2a"/>
+          <circle cx="576" cy="102" r="1.6" fill="#ffffff"/>
+        </g>
+
+        <!-- near wing (gentle flap) -->
+        <g id="wing">
+          <animateTransform attributeName="transform" type="rotate" values="-4 335 158;4 335 158;-4 335 158" dur="2.4s" repeatCount="indefinite"/>
+          <path d="M335,155 C385,138 428,152 438,183 C405,212 345,228 258,220 C296,204 322,184 335,155 Z" fill="#d9d5c5" stroke="#3a3a3a" stroke-width="1.5"/>
+          <path d="M400,168 C420,172 434,180 438,183 C420,205 385,218 350,222 C378,206 396,188 400,168 Z" fill="#333128"/>
+          <path d="M350,175 Q380,178 405,190" fill="none" stroke="#a39f8e" stroke-width="1.5"/>
+          <path d="M335,190 Q365,195 392,205" fill="none" stroke="#a39f8e" stroke-width="1.5"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <p class="hint">车轮转动、脚蹬带动双腿逆运动学摆动、翅膀轻扇 — 纯 SVG + JavaScript 驱动的 2D 动画</p>
+
+  <script>
+    (function () {
+      const svgNS = 'http://www.w3.org/2000/svg';
+
+      function makeSpokes(cx, cy, r, count, groupId, color, width) {
+        const group = document.getElementById(groupId);
+        for (let i = 0; i < count; i++) {
+          const ang = (i / count) * Math.PI * 2;
+          const line = document.createElementNS(svgNS, 'line');
+          line.setAttribute('x1', cx);
+          line.setAttribute('y1', cy);
+          line.setAttribute('x2', (cx + r * Math.cos(ang)).toFixed(2));
+          line.setAttribute('y2', (cy + r * Math.sin(ang)).toFixed(2));
+          line.setAttribute('stroke', color);
+          line.setAttribute('stroke-width', width);
+          line.setAttribute('stroke-linecap', 'round');
+          group.appendChild(line);
+        }
+      }
+
+      makeSpokes(255, 355, 48, 10, 'rearSpokes', '#b7bcc2', 3);
+      makeSpokes(595, 355, 48, 10, 'frontSpokes', '#b7bcc2', 3);
+
+      // Bicycle / rider geometry (kept in sync with the SVG markup above)
+      const BB = { x: 365, y: 350 };       // bottom bracket (crank axle)
+      const CRANK_LEN = 40;
+      const CRANK_PERIOD = 3000;           // ms per revolution, matches #crank animateTransform dur
+      const THIGH = 95, SHIN = 95;
+      const HIP_NEAR = { x: 338, y: 222 };
+      const HIP_FAR = { x: 326, y: 216 };
+
+      const thighNear = document.getElementById('thighNear');
+      const shinNear = document.getElementById('shinNear');
+      const footNear = document.getElementById('footNear');
+      const thighFar = document.getElementById('thighFar');
+      const shinFar = document.getElementById('shinFar');
+      const footFar = document.getElementById('footFar');
+
+      // Two-bone inverse kinematics (law of cosines) so the knee bends naturally
+      // as the foot follows the pedal in a circle around the bottom bracket.
+      function solveKnee(hip, foot, l1, l2, bend) {
+        const dx = foot.x - hip.x, dy = foot.y - hip.y;
+        let d = Math.hypot(dx, dy);
+        const maxD = l1 + l2 - 0.5, minD = Math.abs(l1 - l2) + 0.5;
+        d = Math.min(Math.max(d, minD), maxD);
+        const a = Math.atan2(dy, dx);
+        let cosA = (l1 * l1 + d * d - l2 * l2) / (2 * l1 * d);
+        cosA = Math.min(1, Math.max(-1, cosA));
+        const A = Math.acos(cosA);
+        const ang = a + bend * A;
+        return { x: hip.x + l1 * Math.cos(ang), y: hip.y + l1 * Math.sin(ang) };
+      }
+
+      function setLine(el, p1, p2) {
+        el.setAttribute('x1', p1.x.toFixed(2));
+        el.setAttribute('y1', p1.y.toFixed(2));
+        el.setAttribute('x2', p2.x.toFixed(2));
+        el.setAttribute('y2', p2.y.toFixed(2));
+      }
+
+      function tick(t) {
+        const phase = ((t % CRANK_PERIOD) / CRANK_PERIOD) * Math.PI * 2;
+        const pedalA = { x: BB.x + CRANK_LEN * Math.cos(phase), y: BB.y + CRANK_LEN * Math.sin(phase) };
+        const pedalB = { x: BB.x + CRANK_LEN * Math.cos(phase + Math.PI), y: BB.y + CRANK_LEN * Math.sin(phase + Math.PI) };
+
+        const kneeNear = solveKnee(HIP_NEAR, pedalA, THIGH, SHIN, -1);
+        setLine(thighNear, HIP_NEAR, kneeNear);
+        setLine(shinNear, kneeNear, pedalA);
+        footNear.setAttribute('transform', `translate(${pedalA.x.toFixed(2)},${pedalA.y.toFixed(2)})`);
+
+        const kneeFar = solveKnee(HIP_FAR, pedalB, THIGH, SHIN, -1);
+        setLine(thighFar, HIP_FAR, kneeFar);
+        setLine(shinFar, kneeFar, pedalB);
+        footFar.setAttribute('transform', `translate(${pedalB.x.toFixed(2)},${pedalB.y.toFixed(2)}) scale(0.88)`);
+
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+  </script>
+</body>
+</html>

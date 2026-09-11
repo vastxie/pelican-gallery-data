@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>鹈鹕骑自行车动画</title>
+  <style>
+    :root {
+      --sky-top: #9dd9ff;
+      --sky-bottom: #f7fbff;
+      --ground: #d9f2c8;
+      --wheel: #f5f0e8;
+      --accent: #1f6feb;
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, var(--sky-top), var(--sky-bottom));
+      overflow: hidden;
+    }
+
+    .canvas {
+      width: min(980px, 100vw);
+      height: auto;
+      filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.18));
+    }
+
+    .scene {
+      width: 100%;
+      height: 100%;
+    }
+
+    .bike {
+      animation: ride 0.7s ease-in-out infinite;
+      transform-origin: 360px 275px;
+    }
+
+    .wheel {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: spin 0.7s linear infinite;
+    }
+
+    .crank {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: spin 0.7s linear infinite;
+    }
+
+    .pelican {
+      transform-box: fill-box;
+      transform-origin: 335px 170px;
+      animation: bob 0.7s ease-in-out infinite;
+    }
+
+    .wing {
+      transform-box: fill-box;
+      transform-origin: left center;
+      animation: flap 0.4s ease-in-out infinite;
+    }
+
+    .beak {
+      transform-box: fill-box;
+      transform-origin: 12px 0;
+      animation: peck 1.2s ease-in-out infinite;
+    }
+
+    .ground-line {
+      animation: wiggle 2.2s ease-in-out infinite;
+      transform-origin: 400px 355px;
+      transform-box: fill-box;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes ride {
+      0%, 100% {
+        transform: rotate(-0.7deg) translateY(0);
+      }
+      50% {
+        transform: rotate(0.7deg) translateY(-2px);
+      }
+    }
+
+    @keyframes bob {
+      0%, 100% {
+        transform: rotate(-1deg) translateY(0);
+      }
+      50% {
+        transform: rotate(1.4deg) translateY(1.5px);
+      }
+    }
+
+    @keyframes flap {
+      0%, 100% {
+        transform: rotate(12deg);
+      }
+      50% {
+        transform: rotate(-14deg);
+      }
+    }
+
+    @keyframes peck {
+      0%, 100% {
+        transform: rotate(2deg);
+      }
+      50% {
+        transform: rotate(-3deg);
+      }
+    }
+
+    @keyframes wiggle {
+      0%, 100% {
+        transform: scaleX(1);
+      }
+      50% {
+        transform: scaleX(1.02);
+      }
+    }
+  </style>
+</head>
+<body>
+  <svg class="canvas" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sunGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fff7a2"/>
+        <stop offset="100%" stop-color="#ffd56c"/>
+      </linearGradient>
+    </defs>
+
+    <rect width="800" height="450" fill="url(#sunGradient)" opacity="0.35" />
+    <rect y="350" width="800" height="100" fill="var(--ground)" />
+
+    <g class="scene">
+      <text x="40" y="55" font-size="28" fill="#3a5779" font-family="Georgia, 'Times New Roman', serif">
+        2D 动画：鹈鹕骑自行车
+      </text>
+
+      <g id="wheel-left" class="wheel" fill="none" stroke-linecap="round">
+        <circle cx="270" cy="330" r="60" fill="var(--wheel)" stroke="#444" stroke-width="8" />
+        <circle cx="270" cy="330" r="45" fill="none" stroke="#6f6b63" stroke-width="4" />
+        <circle cx="270" cy="330" r="8" fill="#444" />
+        <line x1="270" y1="330" x2="270" y2="270" stroke="#6f6b63" stroke-width="3" />
+        <line x1="270" y1="330" x2="330" y2="330" stroke="#6f6b63" stroke-width="3" />
+        <line x1="270" y1="330" x2="231" y2="298" stroke="#6f6b63" stroke-width="3" />
+        <line x1="270" y1="330" x2="309" y2="298" stroke="#6f6b63" stroke-width="3" />
+      </g>
+
+      <g id="wheel-right" class="wheel" fill="none" stroke-linecap="round">
+        <circle cx="470" cy="330" r="60" fill="var(--wheel)" stroke="#444" stroke-width="8" />
+        <circle cx="470" cy="330" r="45" fill="none" stroke="#6f6b63" stroke-width="4" />
+        <circle cx="470" cy="330" r="8" fill="#444" />
+        <line x1="470" y1="330" x2="470" y2="270" stroke="#6f6b63" stroke-width="3" />
+        <line x1="470" y1="330" x2="530" y2="330" stroke="#6f6b63" stroke-width="3" />
+        <line x1="470" y1="330" x2="431" y2="298" stroke="#6f6b63" stroke-width="3" />
+        <line x1="470" y1="330" x2="509" y2="298" stroke="#6f6b63" stroke-width="3" />
+      </g>
+
+      <g class="bike" fill="none" stroke="#264653" stroke-width="6" stroke-linecap="round">
+        <line x1="270" y1="330" x2="470" y2="330" />
+        <line x1="270" y1="330" x2="325" y2="250" />
+        <line x1="325" y1="250" x2="470" y2="330" />
+        <line x1="325" y1="250" x2="470" y2="245" />
+        <line x1="325" y1="250" x2="380" y2="190" />
+        <line x1="380" y1="190" x2="470" y2="250" />
+        <line x1="380" y1="190" x2="520" y2="190" />
+        <line x1="520" y1="190" x2="550" y2="215" />
+      </g>
+
+      <rect x="360" y="170" width="15" height="46" rx="8" fill="#2b2d42" />
+      <rect x="330" y="160" width="56" height="10" rx="4" fill="#3f72af" />
+
+      <g class="crank" fill="none" stroke="#2b2d42" stroke-linecap="round" stroke-width="6">
+        <circle cx="360" cy="250" r="18" fill="#fff" stroke="#2b2d42" />
+        <line x1="360" y1="250" x2="390" y2="250" />
+        <line x1="360" y1="250" x2="360" y2="220" />
+        <ellipse cx="390" cy="250" rx="13" ry="6" fill="#2b2d42" />
+        <ellipse cx="360" cy="220" rx="13" ry="6" fill="#2b2d42" transform="rotate(45 360 220)" />
+      </g>
+
+      <g class="wheel-left">
+        <circle cx="270" cy="330" r="5" fill="#444" />
+      </g>
+      <g class="wheel-right">
+        <circle cx="470" cy="330" r="5" fill="#444" />
+      </g>
+
+      <g class="pelican">
+        <ellipse cx="332" cy="155" rx="22" ry="34" fill="#e0a45d" />
+        <ellipse cx="356" cy="143" rx="18" ry="28" fill="#e4aa66" />
+        <path class="wing" d="M304 166 Q284 166 283 148 Q300 132 323 146 Z" fill="#e09d4d" />
+        <path class="wing" d="M320 158 Q316 136 350 140 Q332 160 344 178 Z" fill="#ebaf70" />
+        <circle cx="364" cy="138" r="4" fill="#1b1a18" />
+        <circle cx="367" cy="137" r="1.5" fill="#fff" />
+        <path class="beak" d="M371 153 Q387 148 403 147 Q392 158 374 162 Z" fill="#d88b44" />
+        <circle cx="333" cy="170" r="2.5" fill="#1b1a18" />
+        <line x1="334" y1="176" x2="340" y2="208" stroke="#55352f" stroke-width="4" stroke-linecap="round" />
+        <line x1="346" y1="176" x2="360" y2="224" stroke="#55352f" stroke-width="4" stroke-linecap="round" />
+        <line x1="333" y1="202" x2="327" y2="230" stroke="#2f231f" stroke-width="3.5" />
+        <line x1="346" y1="202" x2="356" y2="233" stroke="#2f231f" stroke-width="3.5" />
+        <circle cx="341" cy="241" r="4.5" fill="#b67b40" />
+        <circle cx="355" cy="233" r="4.5" fill="#b67b40" />
+      </g>
+
+      <g class="ground-line" fill="none" stroke="#5f8f5b" stroke-width="6" stroke-linecap="round" opacity="0.6">
+        <path d="M0 355 C130 330 240 360 360 345 C470 332 580 366 720 342 C760 338 800 350 800 350" />
+      </g>
+    </g>
+  </svg>
+</body>
+</html>

@@ -6,7 +6,7 @@ One prompt, different models, a pelican riding a bicycle in an SVG animation. Th
 
 [Interactive gallery](https://pelican.lightai.io/) · [GitHub dataset](https://github.com/vastxie/pelican-gallery-data)
 
-Snapshot: **2026-09-13 — 102 artifacts across 33 displayed models**. Reasoning levels have separate records. The website's default filters do not change what is included here.
+Snapshot: **2026-09-13 — 119 artifacts across 36 displayed models**. Reasoning levels have separate records. The website's default filters do not change what is included here.
 
 ## Prompt
 
@@ -27,7 +27,7 @@ English translation for reference: “Create an HTML page containing a 2D animat
 
 These are individual run results, without repeated-sample averages or a common score. Harnesses differ in system prompts, tools, permissions, and cache conditions. A single image or elapsed time does not establish a model's overall capability.
 
-Known exceptions: Grok-4.5 Medium was rerun once after getting stuck. Its main record uses the second artifact, duration, and cost; `prior_attempts` summarizes the first run, whose HTML is outside this 102-artifact collection. Some Grok runs wrote HTML but ended with a cancelled status. In individual Grok and Hunyuan runs, the curator terminated hung preview child processes without adding a user prompt or editing the HTML. Those waits count toward elapsed time. See `generation_status` and `run_notes`.
+Known exceptions: Grok-4.5 Medium was rerun once after getting stuck. Its main record uses the second artifact, duration, and cost; `prior_attempts` summarizes the first run, whose HTML is outside this 119-artifact collection. Some Grok runs wrote HTML but ended with a cancelled status. In individual Grok and Hunyuan runs, the curator terminated hung preview child processes without adding a user prompt or editing the HTML. Those waits count toward elapsed time. See `generation_status` and `run_notes`.
 
 ## Time and cost
 
@@ -78,3 +78,9 @@ Added MiniMax M3 (Off / On), MiniMax M2.7 (On), Kimi K2.7 Code (On), Qwen 3.8 Fl
 On means thinking enabled, not High effort. Qwen 3.7 Plus labels represent Pi budgets of 1024 / 2048 / 8192 / 16384 thinking tokens; they are not four officially named effort levels. Qwen 3.8 Flash High and Max aliases map to XHigh, so they are not sampled separately. Actual request controls and the Pi launch level are recorded separately.
 
 Each configuration retains one final original. Models may preview and revise within that run. `visual_tool_usage` records images actually returned by tools to the model, excluding curator checks. M2.7 had two failed transport attempts before producing HTML and completed after switching to Messages. Qwen 3.8 Flash Off had a native retry after an interrupted stream. Complete costs for these two records are unknown; reported usage and earlier elapsed times are preserved separately.
+
+## 2026-09-13: Claude Code configurations
+
+Added Claude Opus 4.7 (Low / Medium / High / XHigh / Max), Claude Sonnet 4.6 (Low / Medium / High / Max), and one Claude Haiku 4.5 run, and completed Claude Opus 4.8 (Low / Medium / High / XHigh) and Claude Opus 4.6 (Low / Medium / High). Opus 4.6 and Sonnet 4.6 have no XHigh level. The Haiku 4.5 API has no effort parameter, so its run was started without a level: `reasoning_effort` and `configuration_label` are `null`, and `model_id` is the dated snapshot the API returned, `claude-haiku-4-5-20251001`. Opus 4.6 is hidden by default on the website and remains available through filters.
+
+All Claude Code records use the Claude Code CLI 2.1.266 bundled with the Claude desktop app, started with `--safe-mode` (no CLAUDE.md, skills, plugins, hooks, MCP servers, or custom agents), with the official API model ID and the `--effort` flag, one generation per configuration in a fresh empty directory. Costs are computed per request from the native session transcript: uncached input, cache reads, cache writes (1-hour cache writes at twice the input rate), and output including thinking tokens are priced separately, plus the CLI's self-reported helper requests such as session-title generation. The official price page was checked on 2026-09-13; Sonnet 5's introductory price has become its standard price. Claude Code shares the static prefix of its system prompt through a one-hour cache across sessions; only the Fable 5 Medium and Low records started from a cold cache and carry roughly USD 0.19 more each, see their `cost.cache_state_note`.

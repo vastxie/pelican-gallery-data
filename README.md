@@ -6,7 +6,7 @@
 
 [在线画廊](https://pelican.lightai.io/) · [GitHub 数据仓库](https://github.com/vastxie/pelican-gallery-data)
 
-当前快照：**2026-09-13，102 份作品，33 个展示模型**。不同推理档位分别记录；网站的默认筛选不影响本仓库的完整收录。
+当前快照：**2026-09-13，119 份作品，36 个展示模型**。不同推理档位分别记录；网站的默认筛选不影响本仓库的完整收录。
 
 ## 提示词
 
@@ -23,7 +23,7 @@
 
 这是一组具体运行的作品记录，没有多次采样均值或统一评分。不同 Harness 的系统提示、工具、权限和缓存条件存在差异，不能仅凭一张图或一次耗时推断模型的总体能力。
 
-已知例外：Grok-4.5 的 Medium 在卡住后重跑过一次，主记录使用第二次的作品、耗时和费用，首次数据摘要见 `prior_attempts`；首次 HTML 不在这 102 份作品中。部分 Grok 运行在写出 HTML 后以取消状态结束；Grok 和 Hunyuan 的个别运行由整理者结束了挂起的预览子进程，未追加用户提示词或修改 HTML，等待计入耗时。详见 `generation_status` 和 `run_notes`。
+已知例外：Grok-4.5 的 Medium 在卡住后重跑过一次，主记录使用第二次的作品、耗时和费用，首次数据摘要见 `prior_attempts`；首次 HTML 不在这 119 份作品中。部分 Grok 运行在写出 HTML 后以取消状态结束；Grok 和 Hunyuan 的个别运行由整理者结束了挂起的预览子进程，未追加用户提示词或修改 HTML，等待计入耗时。详见 `generation_status` 和 `run_notes`。
 
 ## 耗时与费用
 
@@ -74,3 +74,9 @@ artifacts/      完整、未经整理者修改的 HTML 原件
 On 是思考开启状态，不代表 High。Qwen 3.7 Plus 的四个思考标签分别是 Pi 的 1024 / 2048 / 8192 / 16384 token 预算上限，并非四个官方命名档位。Qwen 3.8 Flash 的 High / Max 别名会映射到 XHigh，因此不重复采样。请求配置和 Pi 启动档位分别记录。
 
 每个配置保留一份最终原件；允许模型在同一轮中自行预览和修改。`visual_tool_usage` 记录工具实际返回给模型的图片，与整理者检查分开。M2.7 前两次接口调用在生成 HTML 前失败，切换 Messages 后完成；Qwen 3.8 Flash Off 曾由 Pi 自动续试中断响应。这两条的完整费用未知，已有用量及失败耗时另行保留。
+
+## 2026-09-13：Claude Code 新增配置
+
+新增 Claude Opus 4.7（Low / Medium / High / XHigh / Max）、Claude Sonnet 4.6（Low / Medium / High / Max）、Claude Haiku 4.5（1 份），并补齐 Claude Opus 4.8 的 Low / Medium / High / XHigh 与 Claude Opus 4.6 的 Low / Medium / High。Opus 4.6 与 Sonnet 4.6 没有 XHigh。Haiku 4.5 的 API 没有 effort 参数，运行时未指定档位，`reasoning_effort` 与 `configuration_label` 为 `null`，`model_id` 为 API 返回的带日期快照 `claude-haiku-4-5-20251001`。Opus 4.6 在网站默认隐藏，可在筛选菜单显示。
+
+所有 Claude Code 记录使用 Claude 桌面应用随附的 Claude Code CLI 2.1.266，以 `--safe-mode` 启动（不加载 CLAUDE.md、技能、插件、钩子、MCP 服务器和自定义代理），模型用官方 API ID、档位用 `--effort` 指定，每个配置在独立空目录单次生成。费用按原生会话记录逐请求计算：未缓存输入、缓存读取、缓存写入（1 小时缓存写入按 2 倍输入价）和含思考 token 的输出分别计价，并计入 CLI 自报的会话标题等辅助请求；官方价格页于 2026-09-13 核对，Sonnet 5 的首发价已转为标准价。Claude Code 系统提示的静态前缀跨会话共用 1 小时缓存，只有 Fable 5 的 Medium 与 Low 两条记录遇到冷缓存并各多计约 USD 0.19，见其 `cost.cache_state_note`。

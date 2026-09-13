@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "Pelican Gallery Data",
-  "snapshot_date": "2026-09-11",
+  "snapshot_date": "2026-09-13",
   "prompt": "创建一个HTML，内容是SVG绘制一个鹈鹕骑自行车的2D动画",
   "results": [
     {
@@ -4429,6 +4429,1363 @@
       "native_request_retries": 0,
       "edited_after_collection": false,
       "run_notes": []
+    },
+    {
+      "id": "6d35cae21df4fda31af8",
+      "model_label": "kimi-k2.7-code",
+      "model_id": "kimi-k2.7-code",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": null,
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 133.233,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:46:05.496957+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "kimi-k2.7-code__Pi__133.233s__USD0.03483144.html",
+      "artifact": "artifacts/6d35cae21df4fda31af8.html",
+      "sha256": "44cba63a74e9e84091dc315c6b5d5db92a4b89ad4602336e2cfde4ba46f7d101",
+      "bytes": 16730,
+      "model_display_name": "Kimi-K2.7-Code",
+      "configuration_label": "On",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.03483144",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://platform.kimi.ai/",
+        "tokens": {
+          "uncached_input": 7112,
+          "cache_read": 9216,
+          "cache_write": 0,
+          "output": 6581
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.03483144",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "K2.7 Code always thinks; no independent reasoning effort documented. Preserve tool-call reasoning_content. Original model-card USD rates; not Kimi subscription or highspeed rates.",
+        "pricing_model_id": "kimi-k2.7-code",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "moonshot",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "openai-completions",
+      "sample_configuration": {
+        "pi_effort": "high",
+        "payload": {
+          "thinking": {
+            "type": "enabled"
+          }
+        },
+        "thinking_mode": "always_on"
+      },
+      "pi_thinking_level": "high",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1,
+          "bash": 1
+        }
+      }
+    },
+    {
+      "id": "76a0ec918f5886603e5c",
+      "model_label": "minimax-m2.7",
+      "model_id": "minimax-m2.7",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": null,
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 78.138,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:53:54.122449+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "minimax-m2.7__Pi__78.138s__NA.html",
+      "artifact": "artifacts/76a0ec918f5886603e5c.html",
+      "sha256": "dddc9fdae91211f292f358dffab98ae0a16e8688a5a2780f2fa5b6e1429f9402",
+      "bytes": 13742,
+      "model_display_name": "MiniMax-M2.7",
+      "configuration_label": "On",
+      "harness": "Pi",
+      "cost": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": false,
+        "price_effective_date": null,
+        "price_source_url": "https://platform.minimax.io/docs/guides/pricing-paygo",
+        "tokens": {
+          "uncached_input": 12906,
+          "cache_read": 6258,
+          "cache_write": 1417,
+          "output": 4393
+        },
+        "complete": false,
+        "known_responses_amount_usd": "0.010050255",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "M2.7 always thinks; disabled is accepted but ignored by the original provider. No duplicate effort or Off samples. Standard API rates; cache-write priced separately.",
+        "pricing_model_id": "minimax-m2.7",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "minimax",
+        "coverage_note": "Earlier transport attempts failed before producing HTML and reported no usable token usage. Their cost is unknown; the known amount covers only the completed run."
+      },
+      "generation_attempts": 3,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [
+        "Two earlier Chat Completions transport attempts failed before producing HTML; the completed Messages run is shown. Earlier costs are unknown."
+      ],
+      "provider": "opencode-go",
+      "api": "anthropic-messages",
+      "sample_configuration": {
+        "pi_effort": "high",
+        "payload": {},
+        "thinking_mode": "always_on"
+      },
+      "pi_thinking_level": "high",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls, M2.7 Messages transport selection, and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "bash": 3,
+          "write": 1
+        },
+        "provider_transport_override": {
+          "scope": "Process-local opencode-go model registration",
+          "api": "anthropic-messages",
+          "base_url": "https://opencode.ai/zen/go",
+          "source_url": "https://opencode.ai/docs/go/",
+          "global_pi_settings_preserved": true
+        }
+      },
+      "prior_attempts": [
+        {
+          "status": "failed",
+          "started_at": "2026-09-13T04:43:34.102683+00:00",
+          "ended_at": "2026-09-13T04:43:54.188409+00:00",
+          "duration_seconds": 20.083,
+          "error": "500: {\"type\":\"error\",\"message\":\"Internal server error\"}",
+          "html_files": [],
+          "api": "openai-completions",
+          "request_attempts": 4,
+          "native_request_retries": 3,
+          "reported_tokens": null,
+          "cost_usd": null
+        },
+        {
+          "status": "failed",
+          "started_at": "2026-09-13T04:46:41.512863+00:00",
+          "ended_at": "2026-09-13T04:47:04.589502+00:00",
+          "duration_seconds": 23.077,
+          "error": "500: {\"type\":\"error\",\"message\":\"Internal server error\"}",
+          "html_files": [],
+          "api": "openai-completions",
+          "request_attempts": 4,
+          "native_request_retries": 3,
+          "reported_tokens": null,
+          "cost_usd": null
+        }
+      ]
+    },
+    {
+      "id": "90056af5508958bd2da4",
+      "model_label": "minimax-m3",
+      "model_id": "minimax-m3",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "off",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 17.722,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:43:51.865816+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "minimax-m3[off]__Pi__17.722s__USD0.00664410.html",
+      "artifact": "artifacts/90056af5508958bd2da4.html",
+      "sha256": "b5c66de3dd6aa1048e78ec202b12c7abc453eea9e6cae97e5f4737b4a69eca51",
+      "bytes": 10133,
+      "model_display_name": "MiniMax-M3",
+      "configuration_label": "Off",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.00664410",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://platform.minimax.io/docs/guides/pricing-paygo",
+        "tokens": {
+          "uncached_input": 5403,
+          "cache_read": 1760,
+          "cache_write": 0,
+          "output": 4098
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.00664410",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "MiniMax Standard current permanent reduced rates, <=512K input. M3 exposes adaptive on / disabled, not documented independent effort levels. Separate cache-write usage must be zero; no rate is published.",
+        "pricing_model_id": "minimax-m3",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "minimax",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "anthropic-messages",
+      "sample_configuration": {
+        "pi_effort": "off",
+        "payload": {
+          "thinking": {
+            "type": "disabled"
+          }
+        }
+      },
+      "pi_thinking_level": "off",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1
+        }
+      }
+    },
+    {
+      "id": "9ba2f402bdf5fbfe2f37",
+      "model_label": "minimax-m3",
+      "model_id": "minimax-m3",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": null,
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 169.493,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:46:23.580883+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "minimax-m3__Pi__169.493s__USD0.07500288.html",
+      "artifact": "artifacts/9ba2f402bdf5fbfe2f37.html",
+      "sha256": "70ac9159a501aa71148069cd98946a48cae55ec56d4908b8be07e2b2435b1954",
+      "bytes": 19791,
+      "model_display_name": "MiniMax-M3",
+      "configuration_label": "On",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.07500288",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://platform.minimax.io/docs/guides/pricing-paygo",
+        "tokens": {
+          "uncached_input": 43697,
+          "cache_read": 235983,
+          "cache_write": 0,
+          "output": 39779
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.07500288",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "MiniMax Standard current permanent reduced rates, <=512K input. M3 exposes adaptive on / disabled, not documented independent effort levels. Separate cache-write usage must be zero; no rate is published.",
+        "pricing_model_id": "minimax-m3",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "minimax",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "anthropic-messages",
+      "sample_configuration": {
+        "pi_effort": "high",
+        "payload": {
+          "thinking": {
+            "type": "adaptive"
+          }
+        },
+        "thinking_mode": "adaptive"
+      },
+      "pi_thinking_level": "high",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "bash": 6,
+          "write": 1
+        }
+      }
+    },
+    {
+      "id": "262d366aa177b21a6020",
+      "model_label": "qwen-3.7-plus",
+      "model_id": "qwen3.7-plus",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "high",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 127.919,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:50:26.312353+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "qwen-3.7-plus[high]__Pi__127.919s__USD0.0226472.html",
+      "artifact": "artifacts/262d366aa177b21a6020.html",
+      "sha256": "4ca96ed0686fb8f77f984232f8677a8cac6011e162da633f9a9d630a7105e369",
+      "bytes": 22992,
+      "model_display_name": "Qwen-3.7-Plus",
+      "configuration_label": "High",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.0226472",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-plus",
+        "tokens": {
+          "uncached_input": 13602,
+          "cache_read": 0,
+          "cache_write": 0,
+          "output": 10754
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.0226472",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "Singapore / International API baseline <=256K input. Pi exposes Off plus four budget levels (1024/2048/8192/16384). Continuous thinking_budget is not an enumerable official effort scale. Cache reads use official implicit rates $0.08 / $0.24, not the discounted explicit-cache read rate in Go catalog.",
+        "pricing_model_id": "qwen3.7-plus",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "alibaba",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "openai-completions",
+      "sample_configuration": {
+        "pi_effort": "high",
+        "payload": {
+          "enable_thinking": true,
+          "thinking_budget": 16384
+        },
+        "thinking_budget_tokens": 16384,
+        "level_basis": "Pi 0.85.1 default budget, not an official named model effort"
+      },
+      "pi_thinking_level": "high",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1
+        }
+      }
+    },
+    {
+      "id": "7142471ea64c0e7bc7c1",
+      "model_label": "qwen-3.7-plus",
+      "model_id": "qwen3.7-plus",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "low",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 111.682,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:52:04.865706+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "qwen-3.7-plus[low]__Pi__111.682s__USD0.0189196.html",
+      "artifact": "artifacts/7142471ea64c0e7bc7c1.html",
+      "sha256": "be20001b50d59059350b6f42c5e90dbfb91fcb9c2792520d6b209940758344e2",
+      "bytes": 18164,
+      "model_display_name": "Qwen-3.7-Plus",
+      "configuration_label": "Low",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.0189196",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-plus",
+        "tokens": {
+          "uncached_input": 11735,
+          "cache_read": 0,
+          "cache_write": 0,
+          "output": 8891
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.0189196",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "Singapore / International API baseline <=256K input. Pi exposes Off plus four budget levels (1024/2048/8192/16384). Continuous thinking_budget is not an enumerable official effort scale. Cache reads use official implicit rates $0.08 / $0.24, not the discounted explicit-cache read rate in Go catalog.",
+        "pricing_model_id": "qwen3.7-plus",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "alibaba",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "openai-completions",
+      "sample_configuration": {
+        "pi_effort": "low",
+        "payload": {
+          "enable_thinking": true,
+          "thinking_budget": 2048
+        },
+        "thinking_budget_tokens": 2048,
+        "level_basis": "Pi 0.85.1 default budget, not an official named model effort"
+      },
+      "pi_thinking_level": "low",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1
+        }
+      }
+    },
+    {
+      "id": "433f5a25d622f9dd00f9",
+      "model_label": "qwen-3.7-plus",
+      "model_id": "qwen3.7-plus",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "medium",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 104.368,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:50:12.963872+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "qwen-3.7-plus[medium]__Pi__104.368s__USD0.0184432.html",
+      "artifact": "artifacts/433f5a25d622f9dd00f9.html",
+      "sha256": "43bebfa57434c8b76c2b53eeebe380b34b0878052e3f3c5cc986e21ca3bda347",
+      "bytes": 23045,
+      "model_display_name": "Qwen-3.7-Plus",
+      "configuration_label": "Medium",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.0184432",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-plus",
+        "tokens": {
+          "uncached_input": 11508,
+          "cache_read": 0,
+          "cache_write": 0,
+          "output": 8650
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.0184432",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "Singapore / International API baseline <=256K input. Pi exposes Off plus four budget levels (1024/2048/8192/16384). Continuous thinking_budget is not an enumerable official effort scale. Cache reads use official implicit rates $0.08 / $0.24, not the discounted explicit-cache read rate in Go catalog.",
+        "pricing_model_id": "qwen3.7-plus",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "alibaba",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "openai-completions",
+      "sample_configuration": {
+        "pi_effort": "medium",
+        "payload": {
+          "enable_thinking": true,
+          "thinking_budget": 8192
+        },
+        "thinking_budget_tokens": 8192,
+        "level_basis": "Pi 0.85.1 default budget, not an official named model effort"
+      },
+      "pi_thinking_level": "medium",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1
+        }
+      }
+    },
+    {
+      "id": "6613e92c72c92309e453",
+      "model_label": "qwen-3.7-plus",
+      "model_id": "qwen3.7-plus",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "minimal",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 126.496,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:52:33.074078+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "qwen-3.7-plus[minimal]__Pi__126.496s__USD0.0219692.html",
+      "artifact": "artifacts/6613e92c72c92309e453.html",
+      "sha256": "52f2aa0d65567626587461244c56a4d1021f23c8c801eed18abf8a0dd7fc48db",
+      "bytes": 22419,
+      "model_display_name": "Qwen-3.7-Plus",
+      "configuration_label": "Minimal",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.0219692",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-plus",
+        "tokens": {
+          "uncached_input": 13291,
+          "cache_read": 0,
+          "cache_write": 0,
+          "output": 10408
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.0219692",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "Singapore / International API baseline <=256K input. Pi exposes Off plus four budget levels (1024/2048/8192/16384). Continuous thinking_budget is not an enumerable official effort scale. Cache reads use official implicit rates $0.08 / $0.24, not the discounted explicit-cache read rate in Go catalog.",
+        "pricing_model_id": "qwen3.7-plus",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "alibaba",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "openai-completions",
+      "sample_configuration": {
+        "pi_effort": "minimal",
+        "payload": {
+          "enable_thinking": true,
+          "thinking_budget": 1024
+        },
+        "thinking_budget_tokens": 1024,
+        "level_basis": "Pi 0.85.1 default budget, not an official named model effort"
+      },
+      "pi_thinking_level": "minimal",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1
+        }
+      }
+    },
+    {
+      "id": "1a22742accad19bf80e4",
+      "model_label": "qwen-3.7-plus",
+      "model_id": "qwen3.7-plus",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "off",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 42.444,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:52:47.498492+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "qwen-3.7-plus[off]__Pi__42.444s__USD0.0092124.html",
+      "artifact": "artifacts/1a22742accad19bf80e4.html",
+      "sha256": "ee0da549d78d2297fad225f0590ad753ba30905f723455d2aef12f72d5f3f371",
+      "bytes": 10521,
+      "model_display_name": "Qwen-3.7-Plus",
+      "configuration_label": "Off",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.0092124",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-plus",
+        "tokens": {
+          "uncached_input": 6959,
+          "cache_read": 0,
+          "cache_write": 0,
+          "output": 4018
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.0092124",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "Singapore / International API baseline <=256K input. Pi exposes Off plus four budget levels (1024/2048/8192/16384). Continuous thinking_budget is not an enumerable official effort scale. Cache reads use official implicit rates $0.08 / $0.24, not the discounted explicit-cache read rate in Go catalog.",
+        "pricing_model_id": "qwen3.7-plus",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "alibaba",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "openai-completions",
+      "sample_configuration": {
+        "pi_effort": "off",
+        "payload": {
+          "enable_thinking": false
+        }
+      },
+      "pi_thinking_level": "off",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1
+        }
+      }
+    },
+    {
+      "id": "edee6f360baa90822a2a",
+      "model_label": "qwen-3.8-flash",
+      "model_id": "qwen3.8-flash",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "low",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 114.354,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:48:18.160428+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "qwen-3.8-flash[low]__Pi__114.354s__USD0.004928780.html",
+      "artifact": "artifacts/edee6f360baa90822a2a.html",
+      "sha256": "96998902a95e5294abd72b1ba721d558584fc535a1e50641b445a500e3a5ae92",
+      "bytes": 15941,
+      "model_display_name": "Qwen-3.8-Flash",
+      "configuration_label": "Low",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.004928780",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash",
+        "tokens": {
+          "uncached_input": 18,
+          "cache_read": 9470,
+          "cache_write": 8062,
+          "output": 6728
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.004928780",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "Singapore / International original rates, excluding limited-time offers. Three independent efforts Low / Medium / XHigh plus Off. High and Max map to XHigh and are not separate samples.",
+        "pricing_model_id": "qwen3.8-flash",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "alibaba",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "anthropic-messages",
+      "sample_configuration": {
+        "pi_effort": "low",
+        "payload": {
+          "thinking": {
+            "type": "enabled"
+          },
+          "output_config": {
+            "effort": "low"
+          }
+        }
+      },
+      "pi_thinking_level": "low",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1,
+          "bash": 1
+        }
+      }
+    },
+    {
+      "id": "8970db2b464b848682c2",
+      "model_label": "qwen-3.8-flash",
+      "model_id": "qwen3.8-flash",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "medium",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 69.354,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:47:15.081545+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "qwen-3.8-flash[medium]__Pi__69.354s__USD0.003500570.html",
+      "artifact": "artifacts/8970db2b464b848682c2.html",
+      "sha256": "722dfcb328e31968f13d7f04d4d3b09a34f3398c1c9ce4e0f825b024412ce623",
+      "bytes": 8424,
+      "model_display_name": "Qwen-3.8-Flash",
+      "configuration_label": "Medium",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.003500570",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash",
+        "tokens": {
+          "uncached_input": 24,
+          "cache_read": 12840,
+          "cache_write": 5885,
+          "output": 4499
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.003500570",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "Singapore / International original rates, excluding limited-time offers. Three independent efforts Low / Medium / XHigh plus Off. High and Max map to XHigh and are not separate samples.",
+        "pricing_model_id": "qwen3.8-flash",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "alibaba",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "anthropic-messages",
+      "sample_configuration": {
+        "pi_effort": "medium",
+        "payload": {
+          "thinking": {
+            "type": "enabled"
+          },
+          "output_config": {
+            "effort": "medium"
+          }
+        }
+      },
+      "pi_thinking_level": "medium",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1,
+          "bash": 2
+        }
+      }
+    },
+    {
+      "id": "f36eab03ad1b539715a9",
+      "model_label": "qwen-3.8-flash",
+      "model_id": "qwen3.8-flash",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "off",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 72.79,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T04:48:28.404583+00:00",
+      "collected_at": "2026-09-13T04:55:22+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "qwen-3.8-flash[off]__Pi__72.79s__NA.html",
+      "artifact": "artifacts/f36eab03ad1b539715a9.html",
+      "sha256": "bfa2754fd18a679ec940ca152e1df4d1a752ad408f07216c8b92963e5eea4d09",
+      "bytes": 10183,
+      "model_display_name": "Qwen-3.8-Flash",
+      "configuration_label": "Off",
+      "harness": "Pi",
+      "cost": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": false,
+        "price_effective_date": null,
+        "price_source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash",
+        "tokens": {
+          "uncached_input": 1265,
+          "cache_read": 3092,
+          "cache_write": 4357,
+          "output": 4567
+        },
+        "complete": false,
+        "known_responses_amount_usd": "0.003257112",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "Singapore / International original rates, excluding limited-time offers. Three independent efforts Low / Medium / XHigh plus Off. High and Max map to XHigh and are not separate samples.",
+        "pricing_model_id": "qwen3.8-flash",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "alibaba",
+        "coverage_note": "Pi automatically retried an interrupted response with missing token usage. The total cost is unknown; the separately recorded known-response amount includes any reported partial usage. Successful response usage reconciles across the native, streaming, and final-agent ledgers."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 1,
+      "edited_after_collection": false,
+      "run_notes": [
+        "Pi retried an interrupted stream; reported partial usage is included in the known amount, while complete cost remains unknown."
+      ],
+      "provider": "opencode-go",
+      "api": "anthropic-messages",
+      "sample_configuration": {
+        "pi_effort": "off",
+        "payload": {
+          "thinking": {
+            "type": "disabled"
+          }
+        }
+      },
+      "pi_thinking_level": "off",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 0,
+        "image_blocks": 0,
+        "results": [],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "write": 1
+        }
+      }
+    },
+    {
+      "id": "d42c64a4c1f23af61868",
+      "model_label": "qwen-3.8-flash",
+      "model_id": "qwen3.8-flash",
+      "model_id_source": "Pi persisted assistant model and model_change selection; backend snapshot not exposed.",
+      "model_snapshot": null,
+      "model_snapshot_source": null,
+      "reasoning_effort": "xhigh",
+      "reasoning_effort_source": "Verified outgoing request controls; Pi labels retained for budget configurations",
+      "reasoning_effort_status": null,
+      "harness_key": "Pi",
+      "harness_version": "0.85.1",
+      "harness_version_scope": null,
+      "duration_seconds": 1147.926,
+      "duration_source": "local_monotonic_clock",
+      "duration_scope": "CLI process launch through exit, including native tools and checks",
+      "generated_at": "2026-09-13T05:03:02.441643+00:00",
+      "collected_at": "2026-09-13T05:04:39+00:00",
+      "provenance": "local_pi_single_generation",
+      "generation_status": "completed",
+      "stop_reason": "stop",
+      "cancellation_category": null,
+      "submitted_filename": "qwen-3.8-flash[xhigh]__Pi__1147.926s__USD0.074426876.html",
+      "artifact": "artifacts/d42c64a4c1f23af61868.html",
+      "sha256": "898b83452df165605909eac780aa50856cfecfb276be67040e9e8bc7a2b0a0e3",
+      "bytes": 31988,
+      "model_display_name": "Qwen-3.8-Flash",
+      "configuration_label": "XHigh",
+      "harness": "Pi",
+      "cost": {
+        "amount": "0.074426876",
+        "currency": "USD",
+        "basis": "official_api_equivalent",
+        "source": "verified_official_rates_native_per_response_usage",
+        "verified": true,
+        "price_effective_date": null,
+        "price_source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash",
+        "tokens": {
+          "uncached_input": 228,
+          "cache_read": 1720511,
+          "cache_write": 102229,
+          "output": 56210
+        },
+        "complete": true,
+        "known_responses_amount_usd": "0.074426876",
+        "price_verified_date": "2026-09-13",
+        "price_crosschecked_date": null,
+        "price_crosscheck_url": null,
+        "price_verification_note": "Singapore / International original rates, excluding limited-time offers. Three independent efforts Low / Medium / XHigh plus Off. High and Max map to XHigh and are not separate samples.",
+        "pricing_model_id": "qwen3.8-flash",
+        "pricing_tier": "official_list",
+        "pricing_region": "International USD API equivalent baseline",
+        "pricing_provider": "alibaba",
+        "coverage_note": "All assistant responses reconcile across native session, message_end, and agent_end ledgers. No compaction or nested model calls appear in this run."
+      },
+      "generation_attempts": 1,
+      "native_request_retries": 0,
+      "edited_after_collection": false,
+      "run_notes": [],
+      "provider": "opencode-go",
+      "api": "anthropic-messages",
+      "sample_configuration": {
+        "pi_effort": "high",
+        "payload": {
+          "thinking": {
+            "type": "enabled"
+          },
+          "output_config": {
+            "effort": "xhigh"
+          }
+        }
+      },
+      "pi_thinking_level": "high",
+      "visual_tool_usage": {
+        "successful_image_tool_results": 11,
+        "image_blocks": 11,
+        "results": [
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_d48e88ac73da4ee59ce2bef4",
+            "image_blocks": 1,
+            "file_basename": "shot1.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_a19012cc67384127afef38fc",
+            "image_blocks": 1,
+            "file_basename": "s_0.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_1ed758d4c5b449eab4439d41",
+            "image_blocks": 1,
+            "file_basename": "s2_0.5.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_70b5620cfa46454199338914",
+            "image_blocks": 1,
+            "file_basename": "s3_0.5.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_cfe8435ac0d445e39d178340",
+            "image_blocks": 1,
+            "file_basename": "s4_night.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_5c305641f88d467e8d9e86fa",
+            "image_blocks": 1,
+            "file_basename": "s5_night.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_c4da6959cce04750b7e09278",
+            "image_blocks": 1,
+            "file_basename": "s5_day.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_da2d4554b37b49b997dffdc0",
+            "image_blocks": 1,
+            "file_basename": "t_hud.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_12040032894744f293bb6833",
+            "image_blocks": 1,
+            "file_basename": "t_wide.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_84501ba85a9a4f2abb0188e7",
+            "image_blocks": 1,
+            "file_basename": "t_portrait.png",
+            "followed_by_assistant_response": true
+          },
+          {
+            "tool_name": "read",
+            "tool_call_id": "toolu_f9bb55b5b35f4ede80e87c35",
+            "image_blocks": 1,
+            "file_basename": "preview.png",
+            "followed_by_assistant_response": true
+          }
+        ],
+        "scope": "Images returned by native tools during generation; curator preview checks excluded"
+      },
+      "harness_configuration": {
+        "builtin_tools": [
+          "read",
+          "bash",
+          "edit",
+          "write"
+        ],
+        "extensions_enabled": true,
+        "skills_enabled": false,
+        "prompt_templates_enabled": false,
+        "extension_scope": "Documented thinking controls and metadata-only audit; prompts/tools unchanged",
+        "context_files_enabled": false,
+        "startup_network_enabled": false,
+        "tool_call_counts": {
+          "bash": 18,
+          "read": 14,
+          "write": 1,
+          "edit": 4
+        }
+      }
     }
   ]
 }

@@ -6,7 +6,7 @@ One prompt, different models, a pelican riding a bicycle in an SVG animation. Th
 
 [Interactive gallery](https://pelican.lightai.io/) · [GitHub dataset](https://github.com/vastxie/pelican-gallery-data)
 
-Snapshot: **2026-09-11 — 89 artifacts across 28 displayed models**. Reasoning levels have separate records. The website's default filters do not change what is included here.
+Snapshot: **2026-09-13 — 102 artifacts across 33 displayed models**. Reasoning levels have separate records. The website's default filters do not change what is included here.
 
 ## Prompt
 
@@ -27,7 +27,7 @@ English translation for reference: “Create an HTML page containing a 2D animat
 
 These are individual run results, without repeated-sample averages or a common score. Harnesses differ in system prompts, tools, permissions, and cache conditions. A single image or elapsed time does not establish a model's overall capability.
 
-Known exceptions: Grok-4.5 Medium was rerun once after getting stuck. Its main record uses the second artifact, duration, and cost; `prior_attempts` summarizes the first run, whose HTML is outside this 89-artifact collection. Some Grok runs wrote HTML but ended with a cancelled status. In individual Grok and Hunyuan runs, the curator terminated hung preview child processes without adding a user prompt or editing the HTML. Those waits count toward elapsed time. See `generation_status` and `run_notes`.
+Known exceptions: Grok-4.5 Medium was rerun once after getting stuck. Its main record uses the second artifact, duration, and cost; `prior_attempts` summarizes the first run, whose HTML is outside this 102-artifact collection. Some Grok runs wrote HTML but ended with a cancelled status. In individual Grok and Hunyuan runs, the curator terminated hung preview child processes without adding a user prompt or editing the HTML. Those waits count toward elapsed time. See `generation_status` and `run_notes`.
 
 ## Time and cost
 
@@ -70,3 +70,11 @@ The top level of `results.json` contains `schema_version`, `snapshot_date`, the 
 Find a model and configuration in [results.json](results.json), download the HTML at its `artifact` path, and open it in a browser. You can also download the repository and open files in [artifacts](artifacts/).
 
 Originals retain the complete generated page, including text, controls, and any flaws. Inspect the running HTML to judge the actual result.
+
+## 2026-09-13: OpenCode Go configurations
+
+Added MiniMax M3 (Off / On), MiniMax M2.7 (On), Kimi K2.7 Code (On), Qwen 3.8 Flash (Off / Low / Medium / XHigh), and Qwen 3.7 Plus (Off / Minimal / Low / Medium / High). These five models are hidden by default and remain available through filters.
+
+On means thinking enabled, not High effort. Qwen 3.7 Plus labels represent Pi budgets of 1024 / 2048 / 8192 / 16384 thinking tokens; they are not four officially named effort levels. Qwen 3.8 Flash High and Max aliases map to XHigh, so they are not sampled separately. Actual request controls and the Pi launch level are recorded separately.
+
+Each configuration retains one final original. Models may preview and revise within that run. `visual_tool_usage` records images actually returned by tools to the model, excluding curator checks. M2.7 had two failed transport attempts before producing HTML and completed after switching to Messages. Qwen 3.8 Flash Off had a native retry after an interrupted stream. Complete costs for these two records are unknown; reported usage and earlier elapsed times are preserved separately.

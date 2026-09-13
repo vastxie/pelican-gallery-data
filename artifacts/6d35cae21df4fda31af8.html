@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鹈鹕骑自行车</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 60%, #98D8C8 100%);
+      font-family: 'Microsoft YaHei', sans-serif;
+      overflow: hidden;
+    }
+
+    .scene {
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+      position: relative;
+      background: linear-gradient(180deg, #4FC3F7 0%, #81D4FA 45%, #A5D6A7 45%, #81C784 100%);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .title {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+
+    /* 太阳 */
+    .sun {
+      position: absolute;
+      top: 50px;
+      right: 80px;
+      width: 80px;
+      height: 80px;
+      background: #FFD54F;
+      border-radius: 50%;
+      box-shadow: 0 0 40px #FFD54F, 0 0 80px #FFECB3;
+      animation: sunPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes sunPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* 云朵容器 */
+    .clouds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 45%;
+      animation: cloudMove 20s linear infinite;
+    }
+
+    @keyframes cloudMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* 道路 */
+    .road {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 55%;
+      background: linear-gradient(180deg, #A5D6A7 0%, #81C784 20%, #78909C 20%, #546E7A 100%);
+      animation: roadMove 3s linear infinite;
+    }
+
+    @keyframes roadMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .road-line {
+      position: absolute;
+      bottom: 18%;
+      left: 0;
+      width: 200%;
+      height: 8px;
+      background: repeating-linear-gradient(90deg, #fff 0px, #fff 60px, transparent 60px, transparent 100px);
+    }
+
+    /* 主SVG */
+    svg {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 480px;
+      height: 360px;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+    }
+
+    /* 整车轻微上下颠簸 */
+    .bike-group {
+      animation: bikeBounce 0.8s ease-in-out infinite;
+      transform-origin: 240px 280px;
+    }
+
+    @keyframes bikeBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    /* 踏板曲柄旋转 */
+    .crank {
+      animation: crankRotate 1.5s linear infinite;
+      transform-origin: 220px 275px;
+    }
+
+    @keyframes crankRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* 后轮旋转 */
+    .rear-wheel {
+      animation: wheelRotate 1.5s linear infinite;
+      transform-origin: 100px 275px;
+    }
+
+    /* 前轮旋转 */
+    .front-wheel {
+      animation: wheelRotate 1.5s linear infinite;
+      transform-origin: 360px 275px;
+    }
+
+    @keyframes wheelRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+
+    /* 鹈鹕身体轻微上下 */
+    .pelican-body {
+      animation: bodyBounce 0.8s ease-in-out infinite;
+      transform-origin: 220px 200px;
+    }
+
+    @keyframes bodyBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-2px) rotate(-1deg); }
+    }
+
+    /* 翅膀扇动 */
+    .wing {
+      animation: wingFlap 1.2s ease-in-out infinite;
+      transform-origin: 180px 175px;
+    }
+
+    @keyframes wingFlap {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-8deg); }
+    }
+
+    /* 眼睛眨动 */
+    .eye {
+      animation: blink 3s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 45%, 55%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.1); }
+    }
+
+    /* 脖子和头部轻微摆动 */
+    .head-neck {
+      animation: headBob 0.8s ease-in-out infinite;
+      transform-origin: 195px 165px;
+    }
+
+    @keyframes headBob {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(2deg); }
+    }
+
+    /* 速度线 */
+    .speed-lines {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 200%;
+      height: 4px;
+      opacity: 0;
+      animation: speedLine 1s linear infinite;
+    }
+
+    @keyframes speedLine {
+      0% { transform: translateX(0); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateX(-100px); opacity: 0; }
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 20;
+    }
+
+    button {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 25px;
+      background: #fff;
+      color: #0288D1;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .paused * {
+      animation-play-state: paused !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="scene" id="scene">
+    <div class="title">🐦 鹈鹕学骑车 🚲</div>
+    
+    <!-- 太阳 -->
+    <div class="sun"></div>
+    
+    <!-- 云朵 -->
+    <svg class="clouds" viewBox="0 0 1800 400" preserveAspectRatio="none">
+      <g fill="#fff" opacity="0.85">
+        <ellipse cx="120" cy="80" rx="50" ry="30"/>
+        <ellipse cx="170" cy="70" rx="40" ry="35"/>
+        <ellipse cx="200" cy="85" rx="45" ry="28"/>
+        <ellipse cx="600" cy="120" rx="55" ry="32"/>
+        <ellipse cx="660" cy="105" rx="45" ry="38"/>
+        <ellipse cx="700" cy="125" rx="50" ry="30"/>
+        <ellipse cx="1100" cy="90" rx="48" ry="28"/>
+        <ellipse cx="1155" cy="78" rx="42" ry="35"/>
+        <ellipse cx="1190" cy="95" rx="46" ry="28"/>
+        <ellipse cx="1550" cy="130" rx="52" ry="30"/>
+        <ellipse cx="1610" cy="115" rx="44" ry="36"/>
+        <ellipse cx="1650" cy="135" rx="48" ry="28"/>
+      </g>
+    </svg>
+    
+    <!-- 道路 -->
+    <div class="road">
+      <div class="road-line"></div>
+    </div>
+    
+    <!-- 主要SVG画面 -->
+    <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- 鹈鹕羽毛渐变 -->
+        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#FFFFFF"/>
+          <stop offset="100%" style="stop-color:#F5F5F5"/>
+        </linearGradient>
+        
+        <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#FFFFFF"/>
+          <stop offset="100%" style="stop-color:#E0E0E0"/>
+        </linearGradient>
+        
+        <linearGradient id="beakGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#FFB74D"/>
+          <stop offset="100%" style="stop-color:#FF9800"/>
+        </linearGradient>
+        
+        <linearGradient id="pouchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#FFCC80"/>
+          <stop offset="100%" style="stop-color:#FFA726"/>
+        </linearGradient>
+        
+        <!-- 自行车金属渐变 -->
+        <linearGradient id="bikeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#42A5F5"/>
+          <stop offset="100%" style="stop-color:#1565C0"/>
+        </linearGradient>
+        
+        <!-- 轮胎渐变 -->
+        <radialGradient id="tireGrad">
+          <stop offset="70%" style="stop-color:#37474F"/>
+          <stop offset="100%" style="stop-color:#263238"/>
+        </radialGradient>
+      </defs>
+      
+      <g class="bike-group">
+        <!-- 阴影 -->
+        <ellipse cx="230" cy="305" rx="170" ry="12" fill="rgba(0,0,0,0.2)"/>
+        
+        <!-- 后轮 -->
+        <g class="rear-wheel">
+          <circle cx="100" cy="275" r="55" fill="url(#tireGrad)"/>
+          <circle cx="100" cy="275" r="42" fill="none" stroke="#B0BEC5" stroke-width="3"/>
+          <circle cx="100" cy="275" r="8" fill="#78909C"/>
+          <!-- 辐条 -->
+          <g stroke="#B0BEC5" stroke-width="2" stroke-linecap="round">
+            <line x1="100" y1="275" x2="100" y2="220"/>
+            <line x1="100" y1="275" x2="100" y2="330"/>
+            <line x1="100" y1="275" x2="145" y2="275"/>
+            <line x1="100" y1="275" x2="55" y2="275"/>
+            <line x1="100" y1="275" x2="139" y2="236"/>
+            <line x1="100" y1="275" x2="61" y2="314"/>
+            <line x1="100" y1="275" x2="139" y2="314"/>
+            <line x1="100" y1="275" x2="61" y2="236"/>
+          </g>
+        </g>
+        
+        <!-- 前轮 -->
+        <g class="front-wheel">
+          <circle cx="360" cy="275" r="55" fill="url(#tireGrad)"/>
+          <circle cx="360" cy="275" r="42" fill="none" stroke="#B0BEC5" stroke-width="3"/>
+          <circle cx="360" cy="275" r="8" fill="#78909C"/>
+          <!-- 辐条 -->
+          <g stroke="#B0BEC5" stroke-width="2" stroke-linecap="round">
+            <line x1="360" y1="275" x2="360" y2="220"/>
+            <line x1="360" y1="275" x2="360" y2="330"/>
+            <line x1="360" y1="275" x2="405" y2="275"/>
+            <line x1="360" y1="275" x2="315" y2="275"/>
+            <line x1="360" y1="275" x2="399" y2="236"/>
+            <line x1="360" y1="275" x2="321" y2="314"/>
+            <line x1="360" y1="275" x2="399" y2="314"/>
+            <line x1="360" y1="275" x2="321" y2="236"/>
+          </g>
+        </g>
+        
+        <!-- 自行车车架 -->
+        <g stroke="url(#bikeGrad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <!-- 下管 -->
+          <line x1="100" y1="275" x2="360" y2="275"/>
+          <!-- 立管 -->
+          <line x1="220" y1="275" x2="200" y2="150"/>
+          <!-- 上管 -->
+          <line x1="200" y1="150" x2="330" y2="150"/>
+          <!-- 后上叉 -->
+          <line x1="200" y1="150" x2="100" y2="275"/>
+          <!-- 后下叉 -->
+          <line x1="220" y1="275" x2="100" y2="275"/>
+          <!-- 前叉 -->
+          <line x1="330" y1="150" x2="360" y2="275"/>
+        </g>
+        
+        <!-- 车座 -->
+        <g fill="#5D4037">
+          <ellipse cx="185" cy="150" rx="35" ry="10"/>
+          <rect x="190" y="130" width="10" height="25" rx="3" fill="#78909C"/>
+        </g>
+        
+        <!-- 车把 -->
+        <g fill="none" stroke="url(#bikeGrad)" stroke-width="8" stroke-linecap="round">
+          <line x1="330" y1="150" x2="330" y2="115"/>
+          <path d="M 315 115 Q 330 105 345 115" stroke="#1565C0"/>
+          <line x1="345" y1="115" x2="355" y2="120" stroke="#FF7043" stroke-width="6"/>
+          <line x1="315" y1="115" x2="305" y2="120" stroke="#FF7043" stroke-width="6"/>
+        </g>
+        
+        <!-- 踏板和曲柄（会旋转） -->
+        <g class="crank">
+          <line x1="220" y1="275" x2="220" y2="305" stroke="#546E7A" stroke-width="8" stroke-linecap="round"/>
+          <rect x="210" y="300" width="20" height="10" rx="3" fill="#37474F"/>
+          <line x1="220" y1="275" x2="220" y2="245" stroke="#546E7A" stroke-width="8" stroke-linecap="round"/>
+          <rect x="210" y="240" width="20" height="10" rx="3" fill="#37474F"/>
+        </g>
+        
+        <!-- 中轴 -->
+        <circle cx="220" cy="275" r="12" fill="#78909C"/>
+      </g>
+      
+      <!-- 鹈鹕 -->
+      <g class="pelican-body">
+        <!-- 腿（后侧） -->
+        <g stroke="#FF8A65" stroke-width="10" stroke-linecap="round">
+          <line x1="205" y1="235" x2="210" y2="280"/>
+          <line x1="235" y1="235" x2="230" y2="280"/>
+        </g>
+        
+        <!-- 脚在踏板上 -->
+        <g fill="#FF7043">
+          <ellipse cx="210" cy="280" rx="16" ry="8"/>
+          <ellipse cx="230" cy="280" rx="16" ry="8"/>
+        </g>
+        
+        <!-- 尾巴羽毛 -->
+        <g fill="#ECEFF1">
+          <ellipse cx="130" cy="210" rx="35" ry="15" transform="rotate(-15 130 210)"/>
+          <ellipse cx="125" cy="225" rx="30" ry="12" transform="rotate(-10 125 225)"/>
+        </g>
+        
+        <!-- 身体 -->
+        <ellipse cx="190" cy="200" rx="75" ry="55" fill="url(#bodyGrad)"/>
+        
+        <!-- 翅膀 -->
+        <g class="wing">
+          <path d="M 160 180 Q 120 190 110 230 Q 150 245 190 220 Z" fill="url(#wingGrad)" stroke="#CFD8DC" stroke-width="2"/>
+          <path d="M 150 195 Q 130 205 125 225" fill="none" stroke="#B0BEC5" stroke-width="2"/>
+          <path d="M 165 200 Q 145 210 140 230" fill="none" stroke="#B0BEC5" stroke-width="2"/>
+        </g>
+        
+        <!-- 脖子和头 -->
+        <g class="head-neck">
+          <!-- 长脖子 -->
+          <path d="M 245 190 Q 280 170 275 130 Q 270 90 245 85 Q 220 90 225 130 Q 230 170 205 190" fill="url(#bodyGrad)"/>
+          
+          <!-- 头 -->
+          <ellipse cx="245" cy="95" rx="35" ry="32" fill="url(#bodyGrad)"/>
+          
+          <!-- 羽冠 -->
+          <g fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1">
+            <ellipse cx="235" cy="68" rx="4" ry="10" transform="rotate(-20 235 68)"/>
+            <ellipse cx="245" cy="63" rx="4" ry="12" transform="rotate(0 245 63)"/>
+            <ellipse cx="255" cy="68" rx="4" ry="10" transform="rotate(20 255 68)"/>
+          </g>
+          
+          <!-- 眼睛 -->
+          <g class="eye" transform-origin="255 90">
+            <circle cx="255" cy="90" r="8" fill="#fff"/>
+            <circle cx="257" cy="90" r="4" fill="#212121"/>
+            <circle cx="258" cy="88" r="1.5" fill="#fff"/>
+          </g>
+          
+          <!-- 大嘴巴 -->
+          <g>
+            <!-- 上喙 -->
+            <path d="M 270 95 Q 330 95 360 110 L 350 125 Q 320 115 270 115 Z" fill="url(#beakGrad)" stroke="#F57C00" stroke-width="1"/>
+            <!-- 喉囊 -->
+            <path d="M 270 115 Q 320 115 345 125 Q 330 150 300 145 Q 270 140 270 115 Z" fill="url(#pouchGrad)" stroke="#F57C00" stroke-width="1"/>
+            <!-- 下喙 -->
+            <path d="M 270 115 Q 300 140 330 135 L 325 145 Q 290 150 270 130 Z" fill="#FF9800" stroke="#F57C00" stroke-width="1"/>
+          </g>
+        </g>
+        
+        <!-- 胸前羽毛纹理 -->
+        <g fill="none" stroke="#E0E0E0" stroke-width="1.5" opacity="0.6">
+          <path d="M 170 210 Q 185 220 200 210"/>
+          <path d="M 160 220 Q 180 232 200 220"/>
+          <path d="M 155 230 Q 175 242 195 230"/>
+        </g>
+      </g>
+    </svg>
+    
+    <!-- 速度线装饰 -->
+    <svg class="speed-lines" viewBox="0 0 900 200" preserveAspectRatio="none">
+      <line x1="100" y1="50" x2="250" y2="50" stroke="#fff" stroke-width="3" opacity="0.7"/>
+      <line x1="300" y1="120" x2="450" y2="120" stroke="#fff" stroke-width="2" opacity="0.5"/>
+      <line x1="500" y1="80" x2="620" y2="80" stroke="#fff" stroke-width="3" opacity="0.6"/>
+    </svg>
+    
+    <!-- 控制按钮 -->
+    <div class="controls">
+      <button onclick="toggleAnimation()">⏸ 暂停 / 播放</button>
+      <button onclick="speedUp()">⚡ 加速</button>
+    </div>
+  </div>
+
+  <script>
+    const scene = document.getElementById('scene');
+    let isPaused = false;
+    let speedLevel = 1;
+
+    function toggleAnimation() {
+      isPaused = !isPaused;
+      if (isPaused) {
+        scene.classList.add('paused');
+      } else {
+        scene.classList.remove('paused');
+      }
+    }
+
+    function speedUp() {
+      if (isPaused) return;
+      speedLevel = speedLevel === 1 ? 0.5 : 1;
+      const elements = scene.querySelectorAll('.rear-wheel, .front-wheel, .crank, .road, .clouds');
+      elements.forEach(el => {
+        el.style.animationDuration = speedLevel === 1 ? '' : '0.75s';
+      });
+      // 车身颠簸也要同步
+      const bikeGroup = scene.querySelector('.bike-group');
+      const pelicanBody = scene.querySelector('.pelican-body');
+      const headNeck = scene.querySelector('.head-neck');
+      [bikeGroup, pelicanBody, headNeck].forEach(el => {
+        el.style.animationDuration = speedLevel === 1 ? '' : '0.4s';
+      });
+    }
+  </script>
+</body>
+</html>

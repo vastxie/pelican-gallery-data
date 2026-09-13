@@ -6,7 +6,7 @@
 
 [在线画廊](https://pelican.lightai.io/) · [GitHub 数据仓库](https://github.com/vastxie/pelican-gallery-data)
 
-当前快照：**2026-09-11，89 份作品，28 个展示模型**。不同推理档位分别记录；网站的默认筛选不影响本仓库的完整收录。
+当前快照：**2026-09-13，102 份作品，33 个展示模型**。不同推理档位分别记录；网站的默认筛选不影响本仓库的完整收录。
 
 ## 提示词
 
@@ -23,7 +23,7 @@
 
 这是一组具体运行的作品记录，没有多次采样均值或统一评分。不同 Harness 的系统提示、工具、权限和缓存条件存在差异，不能仅凭一张图或一次耗时推断模型的总体能力。
 
-已知例外：Grok-4.5 的 Medium 在卡住后重跑过一次，主记录使用第二次的作品、耗时和费用，首次数据摘要见 `prior_attempts`；首次 HTML 不在这 89 份作品中。部分 Grok 运行在写出 HTML 后以取消状态结束；Grok 和 Hunyuan 的个别运行由整理者结束了挂起的预览子进程，未追加用户提示词或修改 HTML，等待计入耗时。详见 `generation_status` 和 `run_notes`。
+已知例外：Grok-4.5 的 Medium 在卡住后重跑过一次，主记录使用第二次的作品、耗时和费用，首次数据摘要见 `prior_attempts`；首次 HTML 不在这 102 份作品中。部分 Grok 运行在写出 HTML 后以取消状态结束；Grok 和 Hunyuan 的个别运行由整理者结束了挂起的预览子进程，未追加用户提示词或修改 HTML，等待计入耗时。详见 `generation_status` 和 `run_notes`。
 
 ## 耗时与费用
 
@@ -66,3 +66,11 @@ artifacts/      完整、未经整理者修改的 HTML 原件
 在 [results.json](results.json) 中找到模型和档位，按 `artifact` 路径下载对应 HTML，用浏览器打开即可查看。也可以下载整个仓库后打开 [artifacts](artifacts/) 中的文件。
 
 原件保留模型生成的完整页面，包括页面文字、控件和可能存在的问题；实际效果以浏览器运行结果为准。
+
+## 2026-09-13：OpenCode Go 新增配置
+
+新增 MiniMax M3（Off / On）、MiniMax M2.7（On）、Kimi K2.7 Code（On）、Qwen 3.8 Flash（Off / Low / Medium / XHigh）、Qwen 3.7 Plus（Off / Minimal / Low / Medium / High）。这五款模型默认隐藏，可在筛选菜单显示。
+
+On 是思考开启状态，不代表 High。Qwen 3.7 Plus 的四个思考标签分别是 Pi 的 1024 / 2048 / 8192 / 16384 token 预算上限，并非四个官方命名档位。Qwen 3.8 Flash 的 High / Max 别名会映射到 XHigh，因此不重复采样。请求配置和 Pi 启动档位分别记录。
+
+每个配置保留一份最终原件；允许模型在同一轮中自行预览和修改。`visual_tool_usage` 记录工具实际返回给模型的图片，与整理者检查分开。M2.7 前两次接口调用在生成 HTML 前失败，切换 Messages 后完成；Qwen 3.8 Flash Off 曾由 Pi 自动续试中断响应。这两条的完整费用未知，已有用量及失败耗时另行保留。

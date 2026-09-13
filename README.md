@@ -6,7 +6,7 @@
 
 [在线画廊](https://pelican.lightai.io/) · [GitHub 数据仓库](https://github.com/vastxie/pelican-gallery-data)
 
-当前快照：**2026-09-13，119 份作品，36 个展示模型**。不同推理档位分别记录；网站的默认筛选不影响本仓库的完整收录。
+当前快照：**2026-09-13，129 份作品，37 个展示模型**。不同推理档位分别记录；网站的默认筛选不影响本仓库的完整收录。
 
 ## 提示词
 
@@ -23,7 +23,7 @@
 
 这是一组具体运行的作品记录，没有多次采样均值或统一评分。不同 Harness 的系统提示、工具、权限和缓存条件存在差异，不能仅凭一张图或一次耗时推断模型的总体能力。
 
-已知例外：Grok-4.5 的 Medium 在卡住后重跑过一次，主记录使用第二次的作品、耗时和费用，首次数据摘要见 `prior_attempts`；首次 HTML 不在这 119 份作品中。部分 Grok 运行在写出 HTML 后以取消状态结束；Grok 和 Hunyuan 的个别运行由整理者结束了挂起的预览子进程，未追加用户提示词或修改 HTML，等待计入耗时。详见 `generation_status` 和 `run_notes`。
+已知例外：Grok-4.5 的 Medium 在卡住后重跑过一次，主记录使用第二次的作品、耗时和费用，首次数据摘要见 `prior_attempts`；首次 HTML 不在这 129 份作品中。部分 Grok 运行在写出 HTML 后以取消状态结束；Grok 和 Hunyuan 的个别运行由整理者结束了挂起的预览子进程，未追加用户提示词或修改 HTML，等待计入耗时。详见 `generation_status` 和 `run_notes`。
 
 ## 耗时与费用
 
@@ -80,3 +80,11 @@ On 是思考开启状态，不代表 High。Qwen 3.7 Plus 的四个思考标签�
 新增 Claude Opus 4.7（Low / Medium / High / XHigh / Max）、Claude Sonnet 4.6（Low / Medium / High / Max）、Claude Haiku 4.5（1 份），并补齐 Claude Opus 4.8 的 Low / Medium / High / XHigh 与 Claude Opus 4.6 的 Low / Medium / High。Opus 4.6 与 Sonnet 4.6 没有 XHigh。Haiku 4.5 的 API 没有 effort 参数，运行时未指定档位，`reasoning_effort` 与 `configuration_label` 为 `null`，`model_id` 为 API 返回的带日期快照 `claude-haiku-4-5-20251001`。Opus 4.6 在网站默认隐藏，可在筛选菜单显示。
 
 所有 Claude Code 记录使用 Claude 桌面应用随附的 Claude Code CLI 2.1.266，以 `--safe-mode` 启动（不加载 CLAUDE.md、技能、插件、钩子、MCP 服务器和自定义代理），模型用官方 API ID、档位用 `--effort` 指定，每个配置在独立空目录单次生成。费用按原生会话记录逐请求计算：未缓存输入、缓存读取、缓存写入（1 小时缓存写入按 2 倍输入价）和含思考 token 的输出分别计价，并计入 CLI 自报的会话标题等辅助请求；官方价格页于 2026-09-13 核对，Sonnet 5 的首发价已转为标准价。Claude Code 系统提示的静态前缀跨会话共用 1 小时缓存，只有 Fable 5 的 Medium 与 Low 两条记录遇到冷缓存并各多计约 USD 0.19，见其 `cost.cache_state_note`。
+
+## 2026-09-13：Codex 与 OpenCode Go 补充配置
+
+补入 GPT-5.5 的 Low / Medium / High、GPT-5.3 Codex Spark 的 Low / Medium / High，以及 Hunyuan Hy3 On、Qwen 3.8 Max Off、MiMo V2.5 Pro Off、LongCat 2.0 Off，共 10 份作品。GPT-5.5 Low 来自 2026-09-11 已完成的归档，保留原来的生成日期、Harness 版本与原件，没有重新生成；其余五份 Codex 作品使用 CLI 0.154.0-alpha.6.2。Spark 尚无确定的模型 API 价格，费用保持未知。原件中的动画问题也原样保留。
+
+四份 Pi 作品各运行一次，实际返回给模型的图片工具结果均为 0。Hy3 的 On 仅表示思考开启，推理强度保持未知。Qwen 3.8 Max Off 使用 Messages 接口的显式缓存计价，既有思考档位保留各自的隐式缓存基准，具体口径见记录。未完成或配置身份、关闭思考效果尚未核实的尝试不作为有效作品收录。
+
+网站首页改为维护 21 个模型的展示名单，新模型默认不加入首页；Claude Opus 4.7、Claude Sonnet 4.6 和 Claude Haiku 4.5 也不在默认名单中，仍可通过筛选或对比查看。对比弹窗按模型列、档位行全屏展示，可勾选显示的档位；Harness、耗时和费用可独立开启并放在一行。首页卡片的这三项信息也改为单行。

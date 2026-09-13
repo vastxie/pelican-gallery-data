@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鹈鹕骑自行车动画</title>
+    <style>
+      :root {
+        --road: linear-gradient(180deg, #5b6f6f 0%, #4a5a5a 60%, #3d4c4c 100%);
+        --sky: #a8d8ff;
+        --bike: #2f3a4a;
+        --accent: #ff8f3f;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Trebuchet MS", "Fira Sans", "Segoe UI", sans-serif;
+        background: radial-gradient(circle at 20% 20%, #dff2ff, #9ed2ff 45%, #72b7e9 100%);
+      }
+
+      .scene {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .ground {
+        fill: url(#groundGrad);
+      }
+
+      .bike {
+        transform-origin: 240px 320px;
+        animation: drift 3s linear infinite;
+      }
+
+      .wheel {
+        animation: spin 1s linear infinite;
+      }
+
+      .pelican {
+        transform-origin: 255px 250px;
+        animation: bounce 1s ease-in-out infinite;
+      }
+
+      .leg {
+        transform-origin: center;
+        animation: pedal 1s linear infinite;
+      }
+
+      .leg.back {
+        animation-name: pedal-back;
+      }
+
+      .cloud {
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .cloud:nth-child(2) {
+        animation-delay: -3s;
+      }
+
+      .cloud:nth-child(3) {
+        animation-delay: -5s;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes pedal {
+        0%,
+        100% {
+          transform: rotate(25deg);
+        }
+        50% {
+          transform: rotate(-20deg);
+        }
+      }
+
+      @keyframes pedal-back {
+        0%,
+        100% {
+          transform: rotate(-25deg);
+        }
+        50% {
+          transform: rotate(20deg);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(4px);
+        }
+      }
+
+      @keyframes drift {
+        from {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(8px);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(20px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scene">
+      <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-label="鹈鹕骑自行车动画">
+        <defs>
+          <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#667c7c" />
+            <stop offset="100%" stop-color="#3f4f4f" />
+          </linearGradient>
+          <linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#3f7f9f" />
+            <stop offset="100%" stop-color="#2d607b" />
+          </linearGradient>
+        </defs>
+
+        <rect x="0" y="0" width="800" height="360" fill="url(#sky)" />
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cdeaff" />
+          <stop offset="100%" stop-color="#87c9ff" />
+        </linearGradient>
+
+        <g class="cloud" opacity="0.75">
+          <ellipse cx="130" cy="90" rx="34" ry="18" fill="#fff" />
+          <ellipse cx="158" cy="85" rx="25" ry="14" fill="#fff" />
+          <ellipse cx="182" cy="94" rx="28" ry="16" fill="#fff" />
+          <ellipse cx="160" cy="104" rx="40" ry="20" fill="#fff" />
+        </g>
+        <g class="cloud" transform="translate(420, -4)" opacity="0.65">
+          <ellipse cx="130" cy="110" rx="34" ry="16" fill="#fff" />
+          <ellipse cx="158" cy="106" rx="25" ry="12" fill="#fff" />
+          <ellipse cx="182" cy="112" rx="28" ry="14" fill="#fff" />
+          <ellipse cx="160" cy="120" rx="38" ry="18" fill="#fff" />
+        </g>
+        <g class="cloud" transform="translate(110, 35)" opacity="0.55">
+          <ellipse cx="680" cy="120" rx="28" ry="14" fill="#fff" />
+          <ellipse cx="700" cy="116" rx="19" ry="10" fill="#fff" />
+          <ellipse cx="716" cy="122" rx="22" ry="11" fill="#fff" />
+          <ellipse cx="698" cy="128" rx="30" ry="15" fill="#fff" />
+        </g>
+
+        <g transform="translate(0,330)">
+          <rect class="ground" x="0" y="20" width="800" height="170" />
+          <rect x="0" y="0" width="800" height="18" fill="#b6e18f" />
+        </g>
+
+        <g class="bike" transform="translate(0 0)">
+          <!-- 路面阴影 -->
+          <ellipse cx="260" cy="335" rx="140" ry="10" fill="rgba(0,0,0,0.2)" />
+
+          <!-- 车架后轮 -->
+          <g class="wheel" transform="translate(190 312)">
+            <circle r="57" fill="none" stroke="#1f2a39" stroke-width="10" />
+            <circle r="8" fill="#1f2a39" />
+            <line x1="0" y1="-57" x2="0" y2="57" stroke="#1f2a39" stroke-width="5" />
+            <line x1="-57" y1="0" x2="57" y2="0" stroke="#1f2a39" stroke-width="5" />
+            <line x1="-40" y1="-40" x2="40" y2="40" stroke="#1f2a39" stroke-width="3" />
+            <line x1="-40" y1="40" x2="40" y2="-40" stroke="#1f2a39" stroke-width="3" />
+          </g>
+
+          <!-- 前轮 -->
+          <g class="wheel" transform="translate(400 312)">
+            <circle r="57" fill="none" stroke="#1f2a39" stroke-width="10" />
+            <circle r="8" fill="#1f2a39" />
+            <line x1="0" y1="-57" x2="0" y2="57" stroke="#1f2a39" stroke-width="5" />
+            <line x1="-57" y1="0" x2="57" y2="0" stroke="#1f2a39" stroke-width="5" />
+            <line x1="-40" y1="-40" x2="40" y2="40" stroke="#1f2a39" stroke-width="3" />
+            <line x1="-40" y1="40" x2="40" y2="-40" stroke="#1f2a39" stroke-width="3" />
+          </g>
+
+          <!-- 车架 -->
+          <path d="M190 312 L272 270 L356 255 L380 285 L400 312" fill="none" stroke="#3a4a5a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M272 270 L255 238 L270 210" fill="none" stroke="#3a4a5a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M272 270 L310 238 L360 238" fill="none" stroke="#3a4a5a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="272" cy="270" r="13" fill="#d98b5f" />
+          <rect x="245" y="235" width="16" height="14" rx="6" fill="#2c3b4f" />
+
+          <!-- 鞍座与把手 -->
+          <rect x="250" y="206" width="44" height="14" rx="7" fill="#3d3d3d" />
+          <circle cx="248" cy="206" r="5" fill="#2f3e4f" />
+          <circle cx="296" cy="206" r="5" fill="#2f3e4f" />
+          <rect x="332" y="235" width="16" height="3" rx="2" fill="#3d3d3d" />
+
+          <!-- 骑行脚蹬 -->
+          <rect x="252" y="246" width="8" height="20" fill="#666" />
+          <circle cx="256" cy="246" r="6" fill="#444" />
+          <rect x="250" y="250" width="8" height="22" fill="#666" />
+          <circle cx="254" cy="272" r="7" fill="#444" />
+          <line x1="254" y1="272" x2="268" y2="294" stroke="#b0b0b0" stroke-width="5" />
+          <line x1="258" y1="272" x2="250" y2="294" stroke="#b0b0b0" stroke-width="5" />
+
+          <!-- 鹤鹈鹕主体 -->
+          <g class="pelican" transform="translate(0 0)">
+            <!-- 头部 -->
+            <ellipse cx="285" cy="196" rx="30" ry="26" fill="#c58f4b" stroke="#8f5f29" stroke-width="2" />
+            <!-- 额头与喙 -->
+            <path d="M265 196 Q238 205 230 238" fill="none" stroke="#8f5f29" stroke-width="7" stroke-linecap="round" />
+            <path d="M230 238 Q220 246 230 256" fill="none" stroke="#8f5f29" stroke-width="8" stroke-linecap="round" />
+            <!-- 眼睛 -->
+            <circle cx="296" cy="188" r="5" fill="#222" />
+            <circle cx="286" cy="196" r="6" fill="#5a4b2f" />
+
+            <!-- 脖子 -->
+            <path d="M255 218 C268 230, 272 232, 280 234" stroke="#9f6f38" stroke-width="10" stroke-linecap="round" />
+
+            <!-- 身体 -->
+            <ellipse cx="295" cy="260" rx="32" ry="40" fill="#8cae5a" stroke="#627d45" stroke-width="4" />
+            <ellipse cx="305" cy="267" rx="16" ry="10" fill="#7da252" />
+            <!-- 背包包裹 -->
+            <path d="M322 260 Q350 248 366 270 Q350 292 320 286 Z" fill="#d98b5f" stroke="#a45e43" stroke-width="3" />
+
+            <!-- 颈部/翼 -->
+            <path d="M285 246 Q250 236 236 252 Q252 268 289 266" fill="#d0a45f" stroke="#8f5f29" stroke-width="3" />
+            <path d="M292 252 Q270 268 285 288" fill="none" stroke="#8f5f29" stroke-width="6" stroke-linecap="round" />
+
+            <!-- 四肢 -->
+            <g class="leg" transform="translate(275 300)">
+              <line x1="0" y1="0" x2="-22" y2="24" stroke="#c58f4b" stroke-width="8" stroke-linecap="round" />
+              <line x1="-22" y1="24" x2="-10" y2="48" stroke="#a06f38" stroke-width="7" stroke-linecap="round" />
+              <line x1="-10" y1="48" x2="-26" y2="70" stroke="#1f2f42" stroke-width="6" stroke-linecap="round" />
+              <line x1="-26" y1="70" x2="-17" y2="98" stroke="#9f6f38" stroke-width="7" stroke-linecap="round" />
+              <line x1="-22" y1="24" x2="10" y2="34" stroke="#8f5f29" stroke-width="6" stroke-linecap="round" />
+              <circle cx="-26" cy="70" r="5" fill="#7f6a45" />
+            </g>
+
+            <g class="leg back" transform="translate(306 300)">
+              <line x1="0" y1="0" x2="26" y2="24" stroke="#c58f4b" stroke-width="8" stroke-linecap="round" />
+              <line x1="26" y1="24" x2="16" y2="54" stroke="#a06f38" stroke-width="7" stroke-linecap="round" />
+              <line x1="16" y1="54" x2="34" y2="80" stroke="#1f2f42" stroke-width="6" stroke-linecap="round" />
+              <line x1="34" y1="80" x2="20" y2="104" stroke="#9f6f38" stroke-width="7" stroke-linecap="round" />
+              <line x1="16" y1="54" x2="-12" y2="56" stroke="#8f5f29" stroke-width="6" stroke-linecap="round" />
+              <circle cx="34" cy="80" r="5" fill="#7f6a45" />
+            </g>
+
+            <!-- 胳膊 -->
+            <line x1="267" y1="244" x2="256" y2="268" stroke="#c58f4b" stroke-width="5" stroke-linecap="round" />
+            <line x1="256" y1="268" x2="240" y2="296" stroke="#8f5f29" stroke-width="4" stroke-linecap="round" />
+            <line x1="318" y1="246" x2="334" y2="266" stroke="#c58f4b" stroke-width="5" stroke-linecap="round" />
+            <line x1="334" y1="266" x2="356" y2="244" stroke="#8f5f29" stroke-width="4" stroke-linecap="round" />
+
+            <!-- 头饰尾巴 -->
+            <path d="M248 244 C238 232, 226 242, 226 258" fill="none" stroke="#b07e3f" stroke-width="5" />
+            <path d="M318 258 C332 250, 350 252, 364 278" fill="none" stroke="#a36f33" stroke-width="3" />
+            <ellipse cx="366" cy="278" rx="13" ry="6" fill="#8cae5a" />
+          </g>
+        </g>
+      </svg>
+    </div>
+  </body>
+</html>

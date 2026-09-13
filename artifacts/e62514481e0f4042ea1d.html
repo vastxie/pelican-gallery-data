@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>鹈鹕骑自行车动画</title>
+  <style>
+    :root {
+      --sky-start: #8fd3ff;
+      --sky-end: #fefefe;
+      --ground: #89d07d;
+      --line: #6db46c;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(180deg, var(--sky-start), var(--sky-end));
+      display: grid;
+      place-items: center;
+    }
+
+    .frame {
+      width: min(100%, 1000px);
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.02));
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" role="img">
+      <title id="title">2D 动画：鹈鹕骑自行车</title>
+      <desc id="desc">一只鹈鹕在自行车上骑行的简洁2D动画。</desc>
+
+      <defs>
+        <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#8fd3ff" />
+          <stop offset="100%" stop-color="#f7fbff" />
+        </linearGradient>
+        <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#9fe28e" />
+          <stop offset="100%" stop-color="#66bc67" />
+        </linearGradient>
+      </defs>
+
+      <rect width="900" height="420" fill="url(#sky)" />
+      <rect y="300" width="900" height="120" fill="url(#groundGrad)" />
+      <line x1="0" y1="300" x2="900" y2="300" stroke="var(--line)" stroke-width="4" />
+
+      <g>
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          dur="10s"
+          repeatCount="indefinite"
+          values="-620 0; 920 0; -620 0"
+          keyTimes="0;0.5;1"
+          keySplines="0.42 0 0.58 1;0.42 0 0.58 1"
+          calcMode="spline"
+        />
+
+        <g id="bike">
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              dur="0.55s"
+              repeatCount="indefinite"
+              values="0 0;0 -2;0 0"
+              keyTimes="0;0.5;1"
+              calcMode="spline"
+              keySplines="0.5 0 0.5 1;0.5 0 0.5 1"
+            />
+
+            <!-- Bike frame -->
+            <g stroke="#37474f" stroke-width="4" fill="none" stroke-linecap="round">
+              <line x1="170" y1="210" x2="320" y2="210" />
+              <line x1="170" y1="210" x2="260" y2="120" />
+              <line x1="260" y1="120" x2="330" y2="130" />
+              <line x1="330" y1="130" x2="340" y2="198" />
+              <line x1="340" y1="198" x2="320" y2="210" />
+              <line x1="250" y1="120" x2="265" y2="165" />
+              <line x1="265" y1="165" x2="265" y2="210" />
+            </g>
+
+            <!-- Handlebars and seat -->
+            <path d="M330 130 Q350 120 368 98" fill="none" stroke="#455a64" stroke-width="4" stroke-linecap="round"/>
+            <rect x="252" y="95" width="26" height="6" fill="#546e7a" rx="3" />
+            <rect x="338" y="90" width="4" height="25" fill="#455a64" rx="2" />
+            <rect x="360" y="90" width="8" height="14" fill="#455a64" rx="3" />
+
+            <!-- Rear wheel -->
+            <g>
+              <circle cx="170" cy="210" r="42" fill="#f8f8f8" stroke="#263238" stroke-width="7" />
+              <g>
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" values="0 170 210; 360 170 210" repeatCount="indefinite" />
+                <line x1="170" y1="210" x2="170" y2="168" stroke="#607d8b" stroke-width="3" />
+                <line x1="170" y1="210" x2="170" y2="252" stroke="#607d8b" stroke-width="3" />
+                <line x1="170" y1="210" x2="139" y2="210" stroke="#607d8b" stroke-width="3" />
+                <line x1="170" y1="210" x2="201" y2="210" stroke="#607d8b" stroke-width="3" />
+                <line x1="170" y1="210" x2="152" y2="182" stroke="#607d8b" stroke-width="3" />
+                <line x1="170" y1="210" x2="188" y2="238" stroke="#607d8b" stroke-width="3" />
+                <line x1="170" y1="210" x2="152" y2="238" stroke="#607d8b" stroke-width="3" />
+                <line x1="170" y1="210" x2="188" y2="182" stroke="#607d8b" stroke-width="3" />
+              </g>
+            </g>
+
+            <!-- Front wheel -->
+            <g>
+              <circle cx="330" cy="210" r="42" fill="#f8f8f8" stroke="#263238" stroke-width="7" />
+              <g>
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" values="0 330 210; 360 330 210" repeatCount="indefinite" />
+                <line x1="330" y1="210" x2="330" y2="168" stroke="#607d8b" stroke-width="3" />
+                <line x1="330" y1="210" x2="330" y2="252" stroke="#607d8b" stroke-width="3" />
+                <line x1="330" y1="210" x2="299" y2="210" stroke="#607d8b" stroke-width="3" />
+                <line x1="330" y1="210" x2="361" y2="210" stroke="#607d8b" stroke-width="3" />
+                <line x1="330" y1="210" x2="312" y2="182" stroke="#607d8b" stroke-width="3" />
+                <line x1="330" y1="210" x2="348" y2="238" stroke="#607d8b" stroke-width="3" />
+                <line x1="330" y1="210" x2="312" y2="238" stroke="#607d8b" stroke-width="3" />
+                <line x1="330" y1="210" x2="348" y2="182" stroke="#607d8b" stroke-width="3" />
+              </g>
+            </g>
+
+            <!-- Pedals -->
+            <g>
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0 170 210"
+                to="360 170 210"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+              <circle cx="170" cy="210" r="5" fill="#ffb74d" />
+              <line x1="170" y1="210" x2="170" y2="255" stroke="#ffb74d" stroke-width="6" stroke-linecap="round" />
+              <line x1="170" y1="210" x2="170" y2="165" stroke="#ffb74d" stroke-width="6" stroke-linecap="round" />
+              <rect x="164" y="255" width="12" height="16" rx="5" fill="#ffb74d" />
+              <rect x="164" y="151" width="12" height="16" rx="5" fill="#ffb74d" />
+            </g>
+
+            <!-- Pelican rider -->
+            <g transform="translate(255 98)">
+              <animateTransform
+                attributeName="transform"
+                additive="sum"
+                type="rotate"
+                values="0 0 40; -5 0 40; 0 0 40; 5 0 40; 0 0 40"
+                dur="1s"
+                repeatCount="indefinite"
+                keyTimes="0;0.25;0.5;0.75;1"
+                calcMode="spline"
+                keySplines="0.3 0 0.7 1;0.3 0 0.7 1;0.3 0 0.7 1;0.3 0 0.7 1"
+              />
+              <ellipse cx="0" cy="50" rx="22" ry="34" fill="#4fc3f7" />
+              <path d="M0 18 Q-20 34 0 44" stroke="#4fc3f7" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <ellipse cx="-16" cy="20" rx="8" ry="16" fill="#4fc3f7" />
+              <ellipse cx="16" cy="20" rx="8" ry="16" fill="#4fc3f7" />
+              <ellipse cx="22" cy="44" rx="10" ry="6" fill="#4fc3f7" />
+              <ellipse cx="-22" cy="44" rx="10" ry="6" fill="#4fc3f7" />
+
+              <ellipse cx="-2" cy="20" rx="14" ry="14" fill="#ffcc80"/>
+              <circle cx="-9" cy="18" r="3" fill="#263238" />
+              <circle cx="5" cy="18" r="3" fill="#263238" />
+              <circle cx="18" cy="18" r="3" fill="#fff9c4" />
+              <circle cx="29" cy="17" r="2" fill="#e91e63" />
+              <polygon points="30,18 58,16 36,24" fill="#ffb74d" />
+
+              <ellipse cx="28" cy="35" rx="16" ry="9" fill="#4fc3f7" />
+              <ellipse cx="-36" cy="35" rx="12" ry="18" fill="#4fc3f7" />
+
+              <!-- wings -->
+              <ellipse cx="-24" cy="48" rx="15" ry="7" fill="#b3e5fc" transform="rotate(-20 -24 48)" />
+              <ellipse cx="38" cy="50" rx="15" ry="7" fill="#b3e5fc" transform="rotate(18 38 50)" />
+
+              <!-- legs and feet (simple cycling pose) -->
+              <g stroke="#e0e0e0" stroke-width="5" fill="none" stroke-linecap="round">
+                <g>
+                  <animate attributeName="transform" type="rotate" values="-4 0 50; 8 0 50; -4 0 50" dur="1s" repeatCount="indefinite" />
+                  <path d="M0 50 Q-34 130 -22 170" />
+                  <rect x="-36" y="162" width="16" height="10" rx="4" fill="#ffcc80" stroke="none"/>
+                </g>
+                <g>
+                  <animate attributeName="transform" type="rotate" values="2 0 50; -10 0 50; 2 0 50" dur="1s" repeatCount="indefinite" />
+                  <path d="M0 50 Q40 138 170 255" />
+                  <rect x="158" y="248" width="16" height="10" rx="4" fill="#ffcc80" stroke="none"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- Shadow -->
+            <ellipse cx="250" cy="306" rx="95" ry="11" fill="rgba(0,0,0,0.12)" />
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+</body>
+</html>

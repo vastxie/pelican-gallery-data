@@ -2325,6 +2325,24 @@
       "artifact": "artifacts/a0da3fe085393562202d.html",
       "sha256": "a72eab7699a3b1be715cef253bd8e38df24d9b2e055733ae7b431a29a8ad8024",
       "bytes": 10710
+    },
+    {
+      "id": "b71e0b818be05731afa4",
+      "model": "Union-Alpha",
+      "model_label": "union-alpha",
+      "model_id": "union-alpha",
+      "model_snapshot": null,
+      "reasoning_effort": null,
+      "configuration_label": null,
+      "harness": "Pi",
+      "harness_version": "0.85.1",
+      "duration_seconds": 103.009,
+      "cost_usd": "0",
+      "generated_at": "2026-09-17T06:46:54.647404+00:00",
+      "collected_at": "2026-09-17T06:49:45+00:00",
+      "artifact": "artifacts/b71e0b818be05731afa4.html",
+      "sha256": "5e097af182565c254cb3cebfedcd114d6581223684b28bc3b057683ca9153ab3",
+      "bytes": 8053
     }
   ]
 }

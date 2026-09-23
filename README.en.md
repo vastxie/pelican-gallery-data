@@ -6,7 +6,7 @@ One prompt, different models, a pelican riding a bicycle in an SVG animation. Th
 
 [Interactive gallery](https://pelican.lightai.io/) · [GitHub dataset](https://github.com/vastxie/pelican-gallery-data)
 
-Snapshot: **2026-09-23 — 157 artifacts across 44 displayed models**. Reasoning levels of the same model have separate records. The website's default filters do not change what is included here.
+SVG Snapshot: **2026-09-24 — 157 artifacts across 44 displayed models**. Reasoning levels of the same model have separate records. The website's default filters do not change what is included here.
 
 ## Prompt
 
@@ -20,12 +20,25 @@ English translation for reference: “Create an HTML page containing a 2D animat
 
 Each work is the result of a single generation, without repeated-sample averages or a common score.
 
+## Showtime
+
+[Showtime](https://pelican.lightai.io/?lang=en&tab=showtime) presents complete interactive 3D pages made with an open-ended prompt. This collection has its own [index](showtime.json); it is separate from the SVG comparison and does not share its prompt or scoring conditions.
+
+**Pelican Coast Club — GPT-6-Astra Pro · ChatGPT Web · 43m 14s · cost unknown.** [Original HTML](artifacts/showtime-pelican-coast-astra-pro.html)
+
+```text
+生成一个鹈鹕骑自行车的3D网页，尽可能把你所有的能力全部都用上
+```
+
+Each record includes the original prompt, title, model, mode, harness, time, known cost, dates, file path, and hash. Pro is a display mode; an unknown API reasoning parameter remains `null`.
+
 ## Repository contents
 
 ```text
 README.md       Chinese README
 README.en.md    English README
-results.json    Index of works
+results.json    SVG comparison index
+showtime.json   Showtime collection index
 artifacts/      Complete original HTML files
 ```
 

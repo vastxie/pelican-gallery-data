@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "dataset": "Pelican Gallery Showtime",
+  "snapshot_date": "2026-09-24",
+  "works": [
+    {
+      "id": "pelican-coast-astra-pro",
+      "title": {
+        "zh": "去吹海风",
+        "en": "Pelican Coast Club"
+      },
+      "prompt": "生成一个鹈鹕骑自行车的3D网页，尽可能把你所有的能力全部都用上",
+      "model": "GPT-6-Astra",
+      "model_label": "GPT-6-Astra",
+      "model_id": null,
+      "model_snapshot": null,
+      "reasoning_effort": null,
+      "configuration_label": "Pro",
+      "harness": "ChatGPT Web",
+      "harness_version": null,
+      "duration_seconds": 2594,
+      "cost_usd": null,
+      "generated_at": "2026-09-23T17:04:10.487053Z",
+      "collected_at": "2026-09-24",
+      "artifact": "artifacts/showtime-pelican-coast-astra-pro.html",
+      "sha256": "01689799023f962cf490da1ed92ae76ce89545453cc52a7b5f593cefb5b90e43",
+      "bytes": 98828
+    }
+  ]
+}

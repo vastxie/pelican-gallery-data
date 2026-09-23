@@ -6,7 +6,7 @@
 
 [在线画廊](https://pelican.lightai.io/) · [GitHub 数据仓库](https://github.com/vastxie/pelican-gallery-data)
 
-当前快照：**2026-09-23，157 份作品，44 个展示模型**。同一模型的不同档位分别记录；网站的默认筛选不影响本仓库的完整收录。
+SVG 当前快照：**2026-09-24，157 份作品，44 个展示模型**。同一模型的不同档位分别记录；网站的默认筛选不影响本仓库的完整收录。
 
 ## 提示词
 
@@ -16,12 +16,25 @@
 
 每份作品是一次生成的结果，不是多次采样的均值，也没有统一评分。
 
+## 炫技时刻
+
+[炫技时刻](https://pelican.lightai.io/?lang=zh&tab=showtime) 收录开放式提示生成的完整 3D 交互页面，使用独立的 [作品索引](showtime.json)，与 SVG 对比的提示词、展示集合分开。
+
+**《去吹海风 · Pelican Coast Club》— GPT-6-Astra Pro · ChatGPT 网页 · 43m14s · 费用未知。** [HTML 原件](artifacts/showtime-pelican-coast-astra-pro.html)
+
+```text
+生成一个鹈鹕骑自行车的3D网页，尽可能把你所有的能力全部都用上
+```
+
+每份记录包含原始提示词、标题、模型、模式、运行工具、耗时、已知费用、日期、原件路径与哈希。Pro 是展示模式，未知的 API 推理参数保留为 `null`。
+
 ## 仓库内容
 
 ```text
 README.md       中文说明
 README.en.md    English README
-results.json    作品索引
+results.json    SVG 对比索引
+showtime.json   炫技时刻索引
 artifacts/      完整 HTML 原件
 ```
 

@@ -20,6 +20,14 @@ SVG 当前快照：**2026-09-24，157 份作品，44 个展示模型**。同一�
 
 [炫技时刻](https://pelican.lightai.io/?lang=zh&tab=showtime) 收录开放式提示生成的完整 3D 交互页面，使用独立的 [作品索引](showtime.json)，与 SVG 对比的提示词、展示集合分开。
 
+**《鹈鹕环岛骑行 · Pelican Island Loop》— Claude-Opus-5.5 XHigh · Claude Code · 37m20s · USD 8.82（官方 API 等价下限）。** [HTML 原件](artifacts/showtime-pelican-island-opus-5-5.html)
+
+```text
+生成一个鹈鹕骑自行车的3D页面，尽可能把你所有的能力全部都用上
+```
+
+这份作品原是 claude.ai Artifact。原件是 claude.ai 返回的版本 1 完整页面：模型写的正文字节不变，前后是 claude.ai 自己的 HTML 外壳。运行时需联网从 jsDelivr 加载 three.js 0.160.0，但不需要 claude.ai；只能在 claude.ai 使用的对话、多人同骑、排行榜和保存按钮在其他地方自动隐藏。在线画廊有意拦截页面引用的 Google Fonts，改用系统字体；直接打开下载的文件时，浏览器仍会尝试加载这些字体。在窄于约 406px 的手机上单独打开时，原件自己的触控行会部分裁掉最右侧的“冲刺”按钮（390px 宽时约裁掉 28%，360px 时大部分不可见）；在线画廊按 430px 渲染再缩小，可避开这一问题。
+
 **《去吹海风 · Pelican Coast Club》— GPT-6-Astra Pro · ChatGPT 网页 · 43m14s · 费用未知。** [HTML 原件](artifacts/showtime-pelican-coast-astra-pro.html)
 
 ```text
@@ -38,7 +46,7 @@ showtime.json   炫技时刻索引
 artifacts/      完整 HTML 原件
 ```
 
-原件逐字节保留模型生成的完整页面，包括页面文字、控件和可能存在的问题，整理者不作修改；`results.json` 中的 SHA-256 可用于核对。
+原件逐字节保留模型生成的完整页面，包括页面文字、控件和可能存在的问题，整理者不作修改；上述 Claude Artifact 作品另含 claude.ai 自己的页面外壳，同样按 claude.ai 返回的字节原样保存。SVG 作品的 SHA-256 在 `results.json`，炫技时刻作品在 `showtime.json`，均可用于核对。
 
 `results.json` 顶层保存 `schema_version`、`snapshot_date`、原始 `prompt` 和 `results` 数组。每条结果的字段：
 

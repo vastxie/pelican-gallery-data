@@ -4,6 +4,29 @@
   "snapshot_date": "2026-09-24",
   "works": [
     {
+      "id": "pelican-island-opus-5-5",
+      "title": {
+        "zh": "鹈鹕环岛骑行",
+        "en": "Pelican Island Loop"
+      },
+      "prompt": "生成一个鹈鹕骑自行车的3D页面，尽可能把你所有的能力全部都用上",
+      "model": "Claude-Opus-5.5",
+      "model_label": "Claude-Opus-5.5",
+      "model_id": "claude-opus-5-5",
+      "model_snapshot": null,
+      "reasoning_effort": "xhigh",
+      "configuration_label": "XHigh",
+      "harness": "Claude Code",
+      "harness_version": "2.1.280",
+      "duration_seconds": 2239.781,
+      "cost_usd": "8.8185792",
+      "generated_at": "2026-09-24T02:59:59.640Z",
+      "collected_at": "2026-09-24",
+      "artifact": "artifacts/showtime-pelican-island-opus-5-5.html",
+      "sha256": "7ce39743a226099155e945904ccb3dbb6c1cf4edd3167f0c2964ccef3228b112",
+      "bytes": 188661
+    },
+    {
       "id": "pelican-coast-astra-pro",
       "title": {
         "zh": "去吹海风",

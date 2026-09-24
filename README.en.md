@@ -24,6 +24,14 @@ Each work is the result of a single generation, without repeated-sample averages
 
 [Showtime](https://pelican.lightai.io/?lang=en&tab=showtime) presents complete interactive 3D pages made with an open-ended prompt. This collection has its own [index](showtime.json); it is separate from the SVG comparison and does not share its prompt or scoring conditions.
 
+**Pelican Island Loop — Claude-Opus-5.5 XHigh · Claude Code · 37m 20s · USD 8.82 (official API-equivalent lower bound).** [Original HTML](artifacts/showtime-pelican-island-opus-5-5.html)
+
+```text
+生成一个鹈鹕骑自行车的3D页面，尽可能把你所有的能力全部都用上
+```
+
+This work was published as a claude.ai Artifact. The original is the complete version 1 page returned by claude.ai: the model's page body, byte for byte, inside claude.ai's own HTML shell. It needs an internet connection to load three.js 0.160.0 from jsDelivr, but it does not need claude.ai: the chat, shared rides, leaderboard, and Save button that only work there stay hidden elsewhere. The online gallery deliberately blocks the page's Google Fonts and shows system fonts; a downloaded file opened directly will still try to load them. Opened on its own on a phone narrower than about 406 px, the page's own touch row partly cuts off the rightmost sprint button (about 28% at 390 px wide, most of it at 360 px); the online gallery renders it at 430 px and scales it down to avoid this.
+
 **Pelican Coast Club — GPT-6-Astra Pro · ChatGPT Web · 43m 14s · cost unknown.** [Original HTML](artifacts/showtime-pelican-coast-astra-pro.html)
 
 ```text
@@ -42,7 +50,7 @@ showtime.json   Showtime collection index
 artifacts/      Complete original HTML files
 ```
 
-Originals keep the complete generated page byte for byte, including text, controls, and any flaws; the curator does not edit them. The SHA-256 in `results.json` verifies each file.
+Originals keep the complete generated page byte for byte, including text, controls, and any flaws; the curator does not edit them. The Claude Artifact work above also includes claude.ai's own page shell, kept exactly as claude.ai returned it. SHA-256 hashes are in `results.json` for SVG works and in `showtime.json` for Showtime works.
 
 The top level of `results.json` contains `schema_version`, `snapshot_date`, the original `prompt`, and a `results` array. Fields per result:
 

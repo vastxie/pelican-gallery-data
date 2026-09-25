@@ -6,7 +6,7 @@
 
 [在线画廊](https://pelican.lightai.io/) · [GitHub 数据仓库](https://github.com/vastxie/pelican-gallery-data)
 
-SVG 当前快照：**2026-09-24，157 份作品，44 个展示模型**。同一模型的不同档位分别记录；网站的默认筛选不影响本仓库的完整收录。
+SVG 当前快照：**2026-09-26，162 份作品，45 个展示模型**。同一模型的不同档位分别记录；网站的默认筛选不影响本仓库的完整收录。
 
 ## 提示词
 
@@ -20,7 +20,7 @@ SVG 当前快照：**2026-09-24，157 份作品，44 个展示模型**。同一�
 
 [炫技时刻](https://pelican.lightai.io/?lang=zh&tab=showtime) 收录开放式提示生成的完整 3D 交互页面，使用独立的 [作品索引](showtime.json)，与 SVG 对比的提示词、展示集合分开。
 
-**《鹈鹕环岛骑行 · Pelican Island Loop》— Claude-Opus-5.5 XHigh · Claude Code · 37m20s · USD 8.82（官方 API 等价下限）。** [HTML 原件](artifacts/showtime-pelican-island-opus-5-5.html)
+**《鹈鹕环岛骑行 · Pelican Island Loop》— Claude-Opus-5.5 Ultracode · Claude Code · 37m20s · USD 8.82（官方 API 等价下限）。** [HTML 原件](artifacts/showtime-pelican-island-opus-5-5.html)
 
 ```text
 生成一个鹈鹕骑自行车的3D页面，尽可能把你所有的能力全部都用上

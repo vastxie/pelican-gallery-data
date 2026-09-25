@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "Pelican Gallery Showtime",
-  "snapshot_date": "2026-09-24",
+  "snapshot_date": "2026-09-26",
   "works": [
     {
       "id": "pelican-island-opus-5-5",
@@ -15,7 +15,7 @@
       "model_id": "claude-opus-5-5",
       "model_snapshot": null,
       "reasoning_effort": "xhigh",
-      "configuration_label": "XHigh",
+      "configuration_label": "Ultracode",
       "harness": "Claude Code",
       "harness_version": "2.1.280",
       "duration_seconds": 2239.781,

@@ -6,7 +6,7 @@ One prompt, different models, a pelican riding a bicycle in an SVG animation. Th
 
 [Interactive gallery](https://pelican.lightai.io/) · [GitHub dataset](https://github.com/vastxie/pelican-gallery-data)
 
-SVG Snapshot: **2026-09-24 — 157 artifacts across 44 displayed models**. Reasoning levels of the same model have separate records. The website's default filters do not change what is included here.
+SVG Snapshot: **2026-09-26 — 162 artifacts across 45 displayed models**. Reasoning levels of the same model have separate records. The website's default filters do not change what is included here.
 
 ## Prompt
 
@@ -24,7 +24,7 @@ Each work is the result of a single generation, without repeated-sample averages
 
 [Showtime](https://pelican.lightai.io/?lang=en&tab=showtime) presents complete interactive 3D pages made with an open-ended prompt. This collection has its own [index](showtime.json); it is separate from the SVG comparison and does not share its prompt or scoring conditions.
 
-**Pelican Island Loop — Claude-Opus-5.5 XHigh · Claude Code · 37m 20s · USD 8.82 (official API-equivalent lower bound).** [Original HTML](artifacts/showtime-pelican-island-opus-5-5.html)
+**Pelican Island Loop — Claude-Opus-5.5 Ultracode · Claude Code · 37m 20s · USD 8.82 (official API-equivalent lower bound).** [Original HTML](artifacts/showtime-pelican-island-opus-5-5.html)
 
 ```text
 生成一个鹈鹕骑自行车的3D页面，尽可能把你所有的能力全部都用上

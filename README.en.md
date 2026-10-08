@@ -6,7 +6,7 @@ One prompt, different models, a pelican riding a bicycle in an SVG animation. Th
 
 [Interactive gallery](https://pelican.lightai.io/) · [GitHub dataset](https://github.com/vastxie/pelican-gallery-data)
 
-SVG Snapshot: **2026-09-30 — 173 artifacts across 47 displayed models**. Reasoning levels of the same model have separate records. The website's default filters do not change what is included here.
+SVG Snapshot: **2026-10-08 — 178 artifacts across 48 displayed models**. Reasoning levels of the same model have separate records. The website's default filters do not change what is included here.
 
 ## Prompt
 

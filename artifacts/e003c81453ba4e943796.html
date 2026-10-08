@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鹈鹕骑自行车</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: #1f2a36;
+    font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  svg {
+    width: min(92vw, 960px);
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+  }
+  button {
+    padding: 8px 22px;
+    border: none;
+    border-radius: 999px;
+    background: #f5b041;
+    color: #222;
+    font-size: 15px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<svg id="scene" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="一只鹈鹕骑着自行车">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5bb8ec"/>
+      <stop offset="1" stop-color="#d9f3ff"/>
+    </linearGradient>
+    <g id="cloudShape" fill="#fff" opacity="0.92">
+      <circle r="22"/>
+      <circle cx="26" cy="-10" r="30"/>
+      <circle cx="54" r="22"/>
+      <rect x="-22" width="98" height="22" rx="11"/>
+    </g>
+  </defs>
+
+  <!-- 天空、太阳、云 -->
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <circle cx="690" cy="90" r="62" fill="#fff3b0" opacity="0.45"/>
+  <circle cx="690" cy="90" r="40" fill="#ffd54f"/>
+  <use href="#cloudShape" class="cloud" data-x="120" data-y="80" data-s="0.35"/>
+  <use href="#cloudShape" class="cloud" data-x="420" data-y="50" data-s="0.35"/>
+  <use href="#cloudShape" class="cloud" data-x="560" data-y="170" data-s="0.35"/>
+
+  <!-- 远山 -->
+  <path d="M0 411 C120 330 240 340 340 380 S560 340 680 350 S760 370 800 360 V411 Z" fill="#8bc34a" opacity="0.85"/>
+
+  <!-- 路面与移动的车道虚线 -->
+  <rect y="411" width="800" height="89" fill="#4b5563"/>
+  <rect y="411" width="800" height="6" fill="#7cb342"/>
+  <g id="dashes" fill="#f5f5f5" opacity="0.85"></g>
+
+  <!-- 速度线 -->
+  <g stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.6">
+    <line x1="90" y1="270" x2="150" y2="270"/>
+    <line x1="60" y1="330" x2="130" y2="330"/>
+    <line x1="100" y1="300" x2="150" y2="300"/>
+  </g>
+
+  <!-- 地面阴影 -->
+  <ellipse cx="340" cy="418" rx="190" ry="7" fill="#000" opacity="0.35"/>
+
+  <!-- 鹈鹕 + 自行车（整体随颠簸上下浮动） -->
+  <g id="rider">
+    <!-- 后轮 -->
+    <g transform="translate(230 350)">
+      <circle r="58" fill="none" stroke="#222" stroke-width="6"/>
+      <circle r="52" fill="none" stroke="#9aa5b1" stroke-width="2"/>
+      <g id="rearSpokes" stroke="#c9d1d9" stroke-width="1.3">
+        <path d="M0 -52V52M-45 -26L45 26M-45 26L45 -26"/>
+      </g>
+      <circle r="5" fill="#333"/>
+    </g>
+
+    <!-- 前轮 -->
+    <g transform="translate(450 350)">
+      <circle r="58" fill="none" stroke="#222" stroke-width="6"/>
+      <circle r="52" fill="none" stroke="#9aa5b1" stroke-width="2"/>
+      <g id="frontSpokes" stroke="#c9d1d9" stroke-width="1.3">
+        <path d="M0 -52V52M-45 -26L45 26M-45 26L45 -26"/>
+      </g>
+      <circle r="5" fill="#333"/>
+    </g>
+
+    <!-- 车架 -->
+    <g fill="none" stroke="#2d3436" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M320 350 L230 350"/>
+      <path d="M230 350 L300 240"/>
+      <path d="M320 350 L300 240"/>
+      <path d="M300 240 L415 262"/>
+      <path d="M320 350 L415 275"/>
+      <path d="M415 262 L450 350"/>
+      <path d="M415 262 L425 232 L446 226" stroke-width="5"/>
+    </g>
+
+    <!-- 中轴曲柄与脚蹬 -->
+    <g transform="translate(320 350)">
+      <g id="crank">
+        <line x1="-30" x2="30" stroke="#444" stroke-width="5" stroke-linecap="round"/>
+        <rect x="-38" y="-3" width="16" height="6" rx="2" fill="#222"/>
+        <rect x="22" y="-3" width="16" height="6" rx="2" fill="#222"/>
+        <circle r="10" fill="#555"/>
+      </g>
+    </g>
+
+    <!-- 腿（由逆运动学实时计算，连接髋部与脚蹬） -->
+    <g fill="none" stroke="#f39c12" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path id="legA"/>
+      <path id="legB"/>
+    </g>
+    <g stroke="#e67e22" stroke-width="6" stroke-linecap="round">
+      <line id="footA"/>
+      <line id="footB"/>
+    </g>
+
+    <!-- 脖子 -->
+    <path d="M376 178 Q410 150 420 118" fill="none" stroke="#555" stroke-width="30" stroke-linecap="round"/>
+    <path d="M376 178 Q410 150 420 118" fill="none" stroke="#f7f7f2" stroke-width="25" stroke-linecap="round"/>
+
+    <!-- 尾羽 -->
+    <path d="M272 206 L238 214 Q240 230 266 226 Z" fill="#e6e6dc" stroke="#555" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- 身体 -->
+    <path d="M262 205 C262 158 320 136 370 146 C405 154 418 186 404 214 C392 240 345 248 305 240 C277 234 262 224 262 205 Z"
+          fill="#f7f7f2" stroke="#555" stroke-width="2.5"/>
+
+    <!-- 翅膀（扇动） -->
+    <g id="wing">
+      <path d="M0 -4 C-30 -34 -95 -34 -150 -8 C-120 0 -104 12 -96 22 C-80 16 -62 20 -50 32 C-32 22 -14 18 4 16 Z"
+            fill="#fbfbf7" stroke="#555" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M-30 -4 Q-60 4 -96 8 M-60 6 Q-70 14 -84 24" fill="none" stroke="#b0b7bf" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- 马鞍 -->
+    <path d="M278 242 Q300 232 324 240" fill="none" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- 头、喙、喉囊（轻微点头） -->
+    <g id="head">
+      <path d="M440 98 L534 126 L442 116 Z" fill="#f5b041" stroke="#a0620f" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M444 116 Q476 122 500 130 Q512 160 494 180 Q474 166 450 128 Z" fill="#ffd27f" stroke="#a0620f" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="428" cy="108" r="20" fill="#f7f7f2" stroke="#555" stroke-width="2.5"/>
+      <circle cx="434" cy="102" r="4.5" fill="#111"/>
+      <circle cx="435.5" cy="100.5" r="1.5" fill="#fff"/>
+    </g>
+  </g>
+</svg>
+
+<button id="toggle">暂停</button>
+
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = id => document.getElementById(id);
+  const svg = el('scene');
+  const btn = el('toggle');
+  const fmt = n => n.toFixed(2);
+
+  // 物理与骨骼参数
+  const WHEEL_R = 58;
+  const OMEGA = 2 * Math.PI * 0.9;          // 车轮角速度 (rad/s)
+  const SPEED = OMEGA * WHEEL_R;            // 前进速度 (px/s)，与车轮滚动一致
+  const PEDAL_RATIO = 0.6;                  // 踏板转速 / 车轮转速
+  const BB = { x: 320, y: 350 };            // 中轴位置
+  const CRANK = 30;                         // 曲柄长度
+  const HIP = { x: 330, y: 244 };           // 髋部位置
+  const THIGH = 70, SHIN = 70;              // 大腿 / 小腿长度
+
+  // 生成路面虚线
+  const dashes = el('dashes');
+  for (let x = -80; x <= 880; x += 80) {
+    const r = document.createElementNS(NS, 'rect');
+    r.setAttribute('x', x);
+    r.setAttribute('y', 452);
+    r.setAttribute('width', 44);
+    r.setAttribute('height', 5);
+    r.setAttribute('rx', 2);
+    dashes.appendChild(r);
+  }
+
+  const clouds = [...document.querySelectorAll('.cloud')].map(node => ({
+    node, x: +node.dataset.x, y: +node.dataset.y, s: +node.dataset.s
+  }));
+
+  const rearSpokes = el('rearSpokes');
+  const frontSpokes = el('frontSpokes');
+  const crank = el('crank');
+  const legA = el('legA'), legB = el('legB');
+  const footA = el('footA'), footB = el('footB');
+  const rider = el('rider');
+  const wing = el('wing');
+  const head = el('head');
+
+  // 两段等长骨骼：髋 → 膝 → 踝，膝盖朝前
+  function solveLeg(ax, ay) {
+    let dx = ax - HIP.x, dy = ay - HIP.y;
+    let d = Math.hypot(dx, dy);
+    const maxD = (THIGH + SHIN) * 0.999;
+    if (d > maxD) {
+      dx *= maxD / d;
+      dy *= maxD / d;
+      d = maxD;
+    }
+    const ux = dx / d, uy = dy / d;
+    const a = d / 2;                        // 等长骨骼时，膝到髋踝连线的投影
+    const h = Math.sqrt(THIGH * THIGH - a * a);
+    const bx = HIP.x + ux * a, by = HIP.y + uy * a;
+    let kx = bx - uy * h, ky = by + ux * h;
+    if (kx < bx) {                          // 选择 x 更大的一侧（膝盖朝前）
+      kx = bx + uy * h;
+      ky = by - ux * h;
+    }
+    return { knee: [kx, ky], ankle: [HIP.x + dx, HIP.y + dy] };
+  }
+
+  function render(time) {
+    // 车轮与踏板
+    const ang = OMEGA * time;
+    const wheelDeg = ang * 180 / Math.PI;
+    rearSpokes.setAttribute('transform', `rotate(${fmt(wheelDeg)})`);
+    frontSpokes.setAttribute('transform', `rotate(${fmt(wheelDeg)})`);
+
+    const phi = ang * PEDAL_RATIO;
+    crank.setAttribute('transform', `rotate(${fmt(phi * 180 / Math.PI)})`);
+
+    const pedals = [
+      { x: BB.x + CRANK * Math.cos(phi), y: BB.y + CRANK * Math.sin(phi) },
+      { x: BB.x - CRANK * Math.cos(phi), y: BB.y - CRANK * Math.sin(phi) }
+    ];
+    const legs = [legA, legB], feet = [footA, footB];
+    pedals.forEach((p, i) => {
+      const s = solveLeg(p.x, p.y - 4);
+      legs[i].setAttribute('d',
+        `M${HIP.x} ${HIP.y} L${fmt(s.knee[0])} ${fmt(s.knee[1])} L${fmt(s.ankle[0])} ${fmt(s.ankle[1])}`);
+      feet[i].setAttribute('x1', fmt(p.x - 6));
+      feet[i].setAttribute('y1', fmt(p.y - 4));
+      feet[i].setAttribute('x2', fmt(p.x + 8));
+      feet[i].setAttribute('y2', fmt(p.y - 4));
+    });
+
+    // 颠簸、翅膀、点头
+    rider.setAttribute('transform', `translate(0 ${fmt(-Math.abs(Math.sin(ang)) * 1.5)})`);
+    wing.setAttribute('transform',
+      `translate(350 172) rotate(${fmt(10 + 20 * Math.sin(time * 2 * Math.PI * 1.5))})`);
+    head.setAttribute('transform',
+      `rotate(${fmt(3 * Math.sin(time * 2 * Math.PI * 0.5))} 420 120)`);
+
+    // 路面与云朵滚动（云朵视差更慢）
+    dashes.setAttribute('transform', `translate(${fmt(-((SPEED * time) % 80))} 0)`);
+    clouds.forEach(c => {
+      const x = ((((c.x - SPEED * c.s * time) % 960) + 960) % 960) - 120;
+      c.node.setAttribute('transform', `translate(${fmt(x)} ${c.y})`);
+    });
+  }
+
+  let t = 0, last = performance.now(), running = true;
+  function loop(now) {
+    const dt = Math.min((now - last) / 1000, 0.05);
+    last = now;
+    if (running) t += dt;
+    render(t);
+    requestAnimationFrame(loop);
+  }
+
+  function toggle() {
+    running = !running;
+    btn.textContent = running ? '暂停' : '继续';
+  }
+  btn.addEventListener('click', toggle);
+  svg.addEventListener('click', toggle);
+
+  render(0);
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

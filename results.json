@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "dataset": "Pelican Gallery Data",
-  "snapshot_date": "2026-10-08",
+  "snapshot_date": "2026-10-17",
   "prompt": "创建一个HTML，内容是SVG绘制一个鹈鹕骑自行车的2D动画",
   "results": [
     {
@@ -3207,6 +3207,78 @@
       "artifact": "artifacts/e763fe76af5544664f2c.html",
       "sha256": "ec2d5488aad9d679705c418ceb068ff1db406fe65d7888e5f1ad1f4b6b42e635",
       "bytes": 13152
+    },
+    {
+      "id": "d121ff78d745c856c35e",
+      "model": "DeepSeek-V4.1-Flash-1017",
+      "model_label": "DeepSeek-V4.1-Flash-1017",
+      "model_id": "deepseek-flash",
+      "model_snapshot": null,
+      "reasoning_effort": "high",
+      "configuration_label": "High",
+      "harness": "Pi",
+      "harness_version": "1.1.0",
+      "duration_seconds": 399.511,
+      "cost_usd": "0.046295418",
+      "generated_at": "2026-10-17T09:47:13.332119+00:00",
+      "collected_at": "2026-10-17T09:55:48+00:00",
+      "artifact": "artifacts/d121ff78d745c856c35e.html",
+      "sha256": "f65b9d5d63769f14e95409639bbe8b92edd46998737785c57673ee635206a22c",
+      "bytes": 31567
+    },
+    {
+      "id": "08ad349d996e1fc326fd",
+      "model": "DeepSeek-V4.1-Flash-1017",
+      "model_label": "DeepSeek-V4.1-Flash-1017",
+      "model_id": "deepseek-flash",
+      "model_snapshot": null,
+      "reasoning_effort": "low",
+      "configuration_label": "Low",
+      "harness": "Pi",
+      "harness_version": "1.1.0",
+      "duration_seconds": 499.363,
+      "cost_usd": "0.044005794",
+      "generated_at": "2026-10-17T09:37:51.070985+00:00",
+      "collected_at": "2026-10-17T09:55:48+00:00",
+      "artifact": "artifacts/08ad349d996e1fc326fd.html",
+      "sha256": "b1df254c12d5d1fd5a1847fff48688f42c0aaf3e714b5888aeeeaaf64a57482c",
+      "bytes": 47119
+    },
+    {
+      "id": "41865f9ecc6627836402",
+      "model": "DeepSeek-V4.1-Flash-1017",
+      "model_label": "DeepSeek-V4.1-Flash-1017",
+      "model_id": "deepseek-flash",
+      "model_snapshot": null,
+      "reasoning_effort": "max",
+      "configuration_label": "Max",
+      "harness": "Pi",
+      "harness_version": "1.1.0",
+      "duration_seconds": 862.059,
+      "cost_usd": "0.093969612",
+      "generated_at": "2026-10-17T09:54:55.899468+00:00",
+      "collected_at": "2026-10-17T09:55:48+00:00",
+      "artifact": "artifacts/41865f9ecc6627836402.html",
+      "sha256": "c0110f6f0025f841183efc9c14017a341822e37ce3284dfea63f017e560ea87e",
+      "bytes": 52844
+    },
+    {
+      "id": "87073eaecffcedf32827",
+      "model": "DeepSeek-V4.1-Flash-1017",
+      "model_label": "DeepSeek-V4.1-Flash-1017",
+      "model_id": "deepseek-flash",
+      "model_snapshot": null,
+      "reasoning_effort": "off",
+      "configuration_label": "Off",
+      "harness": "Pi",
+      "harness_version": "1.1.0",
+      "duration_seconds": 243.506,
+      "cost_usd": "0.014845464",
+      "generated_at": "2026-10-17T09:33:35.215211+00:00",
+      "collected_at": "2026-10-17T09:55:48+00:00",
+      "artifact": "artifacts/87073eaecffcedf32827.html",
+      "sha256": "d9a89f6f6a454f492b706e1e09856e99fd7c241f547cbc3355adb526c27845e6",
+      "bytes": 37662
     }
   ]
 }

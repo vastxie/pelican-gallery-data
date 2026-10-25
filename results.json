@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "dataset": "Pelican Gallery Data",
-  "snapshot_date": "2026-10-19",
+  "snapshot_date": "2026-10-25",
   "prompt": "创建一个HTML，内容是SVG绘制一个鹈鹕骑自行车的2D动画",
   "results": [
     {
@@ -3369,6 +3369,60 @@
       "artifact": "artifacts/e51c25b701c65beaa096.html",
       "sha256": "40fe1035db9bf04f352827c5f8a7a830468c76d426f0b42e0bae9196e3e0a9cb",
       "bytes": 26046
+    },
+    {
+      "id": "f1d30ba1842c1b98d1e8",
+      "model": "Kimi-K3.1-Pro",
+      "model_label": "Kimi-K3.1-Pro",
+      "model_id": "k3.1-pro",
+      "model_snapshot": null,
+      "reasoning_effort": "low",
+      "configuration_label": "Low",
+      "harness": "Pi",
+      "harness_version": "1.4.0",
+      "duration_seconds": 184.328,
+      "cost_usd": "0.1022180",
+      "generated_at": "2026-10-25T04:55:10.660329+00:00",
+      "collected_at": "2026-10-25T04:58:47+00:00",
+      "artifact": "artifacts/f1d30ba1842c1b98d1e8.html",
+      "sha256": "05620e062b79d44e28680646984fb9f5d6889d3c3c65ffb532a880b2948041e7",
+      "bytes": 18013
+    },
+    {
+      "id": "fd480575052db831e3e5",
+      "model": "Kimi-K3.1-Pro",
+      "model_label": "Kimi-K3.1-Pro",
+      "model_id": "k3.1-pro",
+      "model_snapshot": null,
+      "reasoning_effort": "high",
+      "configuration_label": "High",
+      "harness": "Pi",
+      "harness_version": "1.4.0",
+      "duration_seconds": 272.596,
+      "cost_usd": "0.1539556",
+      "generated_at": "2026-10-25T04:59:44.459748+00:00",
+      "collected_at": "2026-10-25T05:01:45+00:00",
+      "artifact": "artifacts/fd480575052db831e3e5.html",
+      "sha256": "bb668952ec888079247057c2a99cd5f38f68142f17b9d60bdc7aa78ccfb090b0",
+      "bytes": 26053
+    },
+    {
+      "id": "53692ee62ae903d4a360",
+      "model": "Kimi-K3.1-Pro",
+      "model_label": "Kimi-K3.1-Pro",
+      "model_id": "k3.1-pro",
+      "model_snapshot": null,
+      "reasoning_effort": "max",
+      "configuration_label": "Max",
+      "harness": "Pi",
+      "harness_version": "1.4.0",
+      "duration_seconds": 600.584,
+      "cost_usd": "0.3441140",
+      "generated_at": "2026-10-25T05:09:45.237090+00:00",
+      "collected_at": "2026-10-25T05:13:02+00:00",
+      "artifact": "artifacts/53692ee62ae903d4a360.html",
+      "sha256": "192994de393c58dea850db85e959d4b7e32a2d4a32c4019e399770bf5094adf0",
+      "bytes": 28026
     }
   ]
 }

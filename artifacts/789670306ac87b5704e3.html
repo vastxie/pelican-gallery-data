@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鹈鹕的单车旅行</title>
+<style>
+  *{box-sizing:border-box} body{margin:0;min-height:100vh;display:grid;place-items:center;background:#e8eee8;font-family:system-ui,-apple-system,sans-serif;color:#334b45} main{width:min(960px,94vw);text-align:center} h1{font-size:clamp(1.5rem,4vw,2.5rem);letter-spacing:.08em;margin:.5em 0 .2em} p{margin:0 0 1.5em;color:#70877d;font-size:.9rem;letter-spacing:.12em} svg{display:block;width:100%;height:auto;border-radius:24px;box-shadow:0 18px 50px #536f5d20} .wheel{transform-box:fill-box;transform-origin:center;animation:spin 1.5s linear infinite}.pedal{transform-origin:470px 414px;animation:spin 1.5s linear infinite}.bird{animation:bob 1.5s ease-in-out infinite}.cloud{animation:drift 18s linear infinite}.cloud.two{animation-duration:25s;animation-delay:-9s}.dash{animation:road .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@keyframes bob{50%{transform:translateY(-4px) rotate(-1deg)}}@keyframes drift{from{transform:translateX(-180px)}to{transform:translateX(1000px)}}@keyframes road{to{stroke-dashoffset:-75}}@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <h1>鹈鹕的单车旅行</h1>
+  <p>慢一点，也能抵达远方。</p>
+  <svg viewBox="0 0 900 560" role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg">
+    <title id="title">骑自行车的鹈鹕</title><desc id="desc">一只戴着帽子的鹈鹕骑着自行车，穿过阳光明媚的乡间。</desc>
+    <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#c8e6df"/><stop offset="1" stop-color="#eff4d9"/></linearGradient><linearGradient id="beak" x2="0" y2="1"><stop stop-color="#f4b15e"/><stop offset="1" stop-color="#dd8247"/></linearGradient></defs>
+    <rect width="900" height="560" fill="url(#sky)"/><circle cx="745" cy="104" r="42" fill="#ffe5a4"/>
+    <g fill="#fff" opacity=".7"><g class="cloud"><ellipse cx="100" cy="105" rx="44" ry="15"/><ellipse cx="84" cy="95" rx="20" ry="17"/><ellipse cx="113" cy="92" rx="25" ry="20"/></g><g class="cloud two"><ellipse cx="400" cy="75" rx="48" ry="14"/><ellipse cx="385" cy="66" rx="21" ry="16"/><ellipse cx="415" cy="65" rx="25" ry="19"/></g></g>
+    <path d="M0 340 Q130 250 270 332 Q410 235 555 326 Q710 235 900 320 V440 H0Z" fill="#b3d2b8"/><path d="M0 365 Q130 315 270 370 Q430 300 590 360 Q760 305 900 355 V450 H0Z" fill="#8db99c"/>
+    <path d="M0 421 Q160 400 300 422 T600 420 T900 415 V560 H0Z" fill="#e9d8b1"/><path d="M0 496 H900" stroke="#d1b991" stroke-width="3" stroke-dasharray="42 33" class="dash"/>
+    <g stroke="#385a56" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <g class="wheel"><circle cx="302" cy="414" r="76" fill="#f8f4de" stroke="#344e4b"/><circle cx="302" cy="414" r="65" stroke="#8ba49a" stroke-width="2"/><path d="M302 349v130m-65-65h130m-111-46 92 92m0-92-92 92" stroke="#a8b9ad" stroke-width="2"/><circle cx="302" cy="414" r="6" fill="#385a56"/></g>
+      <g class="wheel"><circle cx="628" cy="414" r="76" fill="#f8f4de" stroke="#344e4b"/><circle cx="628" cy="414" r="65" stroke="#8ba49a" stroke-width="2"/><path d="M628 349v130m-65-65h130m-111-46 92 92m0-92-92 92" stroke="#a8b9ad" stroke-width="2"/><circle cx="628" cy="414" r="6" fill="#385a56"/></g>
+      <path d="M302 414 380 320 470 414 302 414 420 337 470 414 560 320 628 414 M380 320h-20m193 0-12-27h-24" stroke="#d87958" stroke-width="9"/><path d="M370 313h37m-47-4h35" stroke="#385a56"/><path d="M541 293h36"/>
+      <g class="pedal"><circle cx="470" cy="414" r="19" stroke="#385a56" stroke-width="3"/><path d="M455 399 485 429m-36-34h14m15 38h14" stroke-width="5"/></g>
+    </g>
+    <g class="bird">
+      <path d="M411 302 Q423 342 458 367 L476 405" fill="none" stroke="#e49a53" stroke-width="9" stroke-linecap="round"/><path d="M477 405l22 4" stroke="#c77b42" stroke-width="8" stroke-linecap="round"/>
+      <path d="M393 302 Q405 339 432 355 L443 388" fill="none" stroke="#e49a53" stroke-width="8" stroke-linecap="round"/><path d="M442 388l19 3" stroke="#c77b42" stroke-width="7" stroke-linecap="round"/>
+      <path d="M328 241 Q303 232 294 210 Q292 245 315 262 Q301 260 292 254 Q304 277 331 278" fill="#f9f8eb" stroke="#536c64" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M326 233 Q345 201 404 211 Q437 212 453 185 Q464 167 453 144 L485 145 Q504 177 487 210 Q474 235 446 248 Q439 307 390 318 Q345 323 321 287 Q307 265 326 233Z" fill="#fffdf1" stroke="#536c64" stroke-width="3"/>
+      <path d="M344 241 Q373 221 414 244 Q405 279 367 284 Q346 284 334 271 Q354 272 365 260 Q350 262 344 241Z" fill="#e4e9dd" stroke="#a6b7a9" stroke-width="2"/>
+      <path d="M457 141 Q450 117 466 103 Q481 89 503 102 Q520 113 515 137 Q509 154 492 160 L468 154Z" fill="#fffdf1" stroke="#536c64" stroke-width="3"/>
+      <path d="M507 131 Q550 127 608 143 Q586 154 510 150 Q525 170 584 151 Q570 181 535 184 Q510 184 492 158Z" fill="url(#beak)" stroke="#a9633e" stroke-width="3" stroke-linejoin="round"/><path d="M512 148 Q558 146 605 144" fill="none" stroke="#b66d3f" stroke-width="2"/>
+      <circle cx="499" cy="122" r="4" fill="#344e4b"/><circle cx="500" cy="121" r="1.2" fill="white"/>
+      <path d="M451 104 Q472 93 515 106 L518 113 Q481 106 449 113Z" fill="#d97859"/><path d="M460 102 Q462 74 482 73 Q502 75 507 103Z" fill="#e68e69"/><path d="M462 96 Q484 101 506 98" fill="none" stroke="#f4c5a5" stroke-width="4"/>
+      <path d="M400 251 Q425 265 454 253 L491 283 L531 289" fill="none" stroke="#f5f4e7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><path d="M400 251 Q425 265 454 253 L491 283 L531 289" fill="none" stroke="#92a99b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="533" cy="289" r="6" fill="#fffdf1" stroke="#536c64" stroke-width="2"/>
+    </g>
+    <g fill="#f8f5df" opacity=".9"><circle cx="105" cy="397" r="3"/><circle cx="114" cy="393" r="3"/><circle cx="119" cy="400" r="3"/><circle cx="790" cy="386" r="3"/><circle cx="799" cy="382" r="3"/><circle cx="805" cy="389" r="3"/></g>
+  </svg>
+</main>
+</body>
+</html>
